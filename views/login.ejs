@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="/css/login.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOGIN&SIGNUP</title>
+  </head>
+  <body>
+    <div class="signupHolder">
+      <div class="box1">
+        <form class="signupForm" action="/cred" method="post">
+          <label><h1>LOGIN</h1></label>
+
+          <div class="feild1">
+            <label for="name"
+              ><img
+                src="/images/Vector1.png"
+                alt="name"
+                width="20px"
+                height="20px"
+            /></label>
+            <input
+              class="input-border"
+              type="text"
+              name="name"
+              placeholder="Enter Username"
+            />
+          </div>
+
+          <div class="feild2">
+            <label for="email"
+              ><img
+                src="/images/Vector2.png"
+                alt="email"
+                width="20px"
+                height="20px"
+            /></label>
+            <input
+              class="input-border"
+              type="text"
+              name="email"
+              placeholder="Enter email"
+            />
+          </div>
+
+          <div class="feild3">
+            <label for="password"
+              ><img
+                src="/images/Vector3.png"
+                alt="password"
+                width="20px"
+                height="20px"
+            /></label>
+            <input
+              class="input-border"
+              type="text"
+              name="password"
+              placeholder="Enter password"
+            />
+          </div>
+
+          <div class="feild4">
+            <input type="radio" name="terms" />
+            <label for="terms">I agree to all terms and condition</label>
+          </div>
+
+          <div class="feild5">
+            <button type="submit" id="register">Login</button>
+          </div>
+
+          <h5>
+            Don't have an account yet ?
+            <button type="button" id="signUp">SignUp</button>
+          </h5>
+        </form>
+      </div>
+      <div class="dummy">
+        <img src="/images/dummy.png" alt="dummy" />
+      </div>
+      <div class="box2">
+        <form class="signupForm" action="/creds" method="post">
+          <label><h1>SIGNUP</h1></label>
+
+          <div class="feild1">
+            <label for="name"
+              ><img
+                src="/images/Vector1.png"
+                alt="name"
+                width="20px"
+                height="20px"
+            /></label>
+            <input
+              class="input-border"
+              type="text"
+              name="name"
+              placeholder="Enter Username"
+            />
+          </div>
+
+          <div class="feild2">
+            <label for="email"
+              ><img
+                src="/images/Vector2.png"
+                alt="email"
+                width="20px"
+                height="20px"
+            /></label>
+            <input
+              class="input-border"
+              type="text"
+              name="email"
+              placeholder="Enter email"
+            />
+          </div>
+
+          <div class="feild3">
+            <label for="password"
+              ><img
+                src="/images/Vector3.png"
+                alt="password"
+                width="20px"
+                height="20px"
+            /></label>
+            <input
+              class="input-border"
+              type="text"
+              name="password"
+              placeholder="Enter password"
+            />
+          </div>
+
+          <div class="feild4">
+            <input type="radio" name="terms" />
+            <label for="terms">I agree to all terms and condition</label>
+          </div>
+
+          <div class="feild5">
+            <button type="submit" id="register">Register</button>
+          </div>
+
+          <h5>
+            Already have an account ?
+            <button type="button" id="login">LOGIN</button>
+          </h5>
+        </form>
+      </div>
+    </div>
+    <script src="/js/login.js"></script>
+  </body>
+</html>

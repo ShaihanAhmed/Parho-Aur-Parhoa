@@ -1,1 +1,24 @@
-console.log("Hello world!");
+const express = require('express');
+const path = require("path");
+const app = express();
+const port = 3000;
+
+app.set("view engine", "ejs");
+
+app.set("views", path.join(__dirname, "views"));
+
+app.use(express.static("public"));
+
+app.use(express.urlencoded({ extended: true }));
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+});
+
+app.get('/login', (req, res) => {
+  res.render("login");
+});
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
