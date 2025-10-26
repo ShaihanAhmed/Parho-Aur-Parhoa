@@ -1,13 +1,29 @@
+require("dotenv").config();
+const config = require("config");
+
 const express = require('express');
-const path = require("path");
 const app = express();
-const port = 3000;
+const path = require("path");
+
+const debug = require("debug")("development:server"); //setting namespace with env and coing file name
+
+
+//db config
+const connDB = require("./config/mongooseConnection");
+connDB();
+
+const port = process.env.PORT || 3000;
+
+const cookieParser = require('cookie-parser');
 
 app.set("view engine", "ejs");
 
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static("public"));
+
+app.use(express.json());
+app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -20,5 +36,5 @@ app.get('/login', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  debug(`${config.get("APP NAME")} Server running successfully 🚀 on port : ${port}!`)
 })
