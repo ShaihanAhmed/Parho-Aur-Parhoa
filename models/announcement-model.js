@@ -7,9 +7,9 @@ const mongoose = require("mongoose");
 const announcementSchema = new mongoose.Schema(
   {
     //shared att
-    Message: { type: String, required: true },
+    message: { type: String, required: true },
 
-    CreatedBy: { type: mongoose.Schema.Types.ObjectId , ref : "User" , required : true },
+    createdBy: { type: mongoose.Schema.Types.ObjectId , ref : "User" , required : true },
 },
 
   {

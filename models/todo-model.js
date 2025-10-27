@@ -7,13 +7,13 @@ const mongoose = require("mongoose");
 const todoSchema = new mongoose.Schema(
   {
     //shared att
-    Title: { type: String, required: true },
+    title: { type: String, required: true },
 
-    Desc: { type: String },
+    desc: { type: String },
 
     createdBy : {type : mongoose.Schema.Types.ObjectId , required : true},
 
-    IsCompleted : {type : Boolean , default : false}
+    isCompleted : {type : Boolean , default : false}
 },
 
   {

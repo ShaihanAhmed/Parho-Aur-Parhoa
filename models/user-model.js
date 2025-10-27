@@ -12,13 +12,13 @@ const bcrypt = require("bcrypt");
 const userSchema = new mongoose.Schema(
   {
     //shared att
-    Name: { type: String, required: true },
+    name: { type: String, required: true },
 
-    Email: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true },
 
-    Password: { type: String, required: true },
+    password: { type: String, required: true },
 
-    Role: {
+    role: {
       type: String,
       enum: ["Admin", "Teacher", "Student"],
       default: "Student",
@@ -26,15 +26,15 @@ const userSchema = new mongoose.Schema(
 
     // pic
 
-    IsActive: { type: Boolean, default: false }, //logout pai we set to false | sign/log true
+    isActive: { type: Boolean, default: false }, //logout pai we set to false | sign/log true
 
     //for teacher and student
 
-    Courses: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
+    courses: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
 
-    Quizzes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Quiz" }],
+    quizzes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Quiz" }],
 
-    Todos: [{ type: mongoose.Schema.Types.ObjectId, ref: "Todo" }],
+    todos: [{ type: mongoose.Schema.Types.ObjectId, ref: "Todo" }],
   },
 
   {
@@ -46,11 +46,11 @@ const userSchema = new mongoose.Schema(
 //middleware
 userSchema.pre("save", async function (next) {
   //arrow dont have access to this
-  if (!this.isModified("Password")) {
+  if (!this.isModified("password")) {
     return next();
   } else {
     try {
-      this.Password = await bcrypt.hash(this.Password, 10);
+      this.password = await bcrypt.hash(this.password, 10);
       next();
     } catch (error) {
       console.error("Some err occured while hashing!", error.message);
@@ -64,7 +64,7 @@ userSchema.methods.comparePasswords = async function (pass) {
     throw new Error("Some err occured while req management of password!");
   }
 
-  return await bcrypt.compare(pass, this.Password);
+  return await bcrypt.compare(pass, this.password);
 };
 
 //default exp

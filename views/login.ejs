@@ -9,7 +9,7 @@
   <body>
     <div class="signupHolder">
       <div class="box1">
-        <form class="signupForm" action="/cred" method="post">
+        <form class="signupForm" action="/user/login" method="post">
           <label><h1>LOGIN</h1></label>
 
           <div class="feild1">
@@ -54,15 +54,34 @@
             /></label>
             <input
               class="input-border"
-              type="text"
+              type="password"
               name="password"
               placeholder="Enter password"
             />
           </div>
 
-          <div class="feild4">
+          <!-- <div class="feild4">
             <input type="radio" name="terms" />
             <label for="terms">I agree to all terms and condition</label>
+          </div> -->
+
+          <div class="feild4">
+            <p>Select role :</p>
+
+            <label>
+              <input type="radio" name="role" value="Admin" />
+              admin
+            </label>
+
+            <label>
+              <input type="radio" name="role" value="Teacher" />
+              teacher
+            </label>
+
+            <label>
+              <input type="radio" name="role" value="Student" />
+              student
+            </label>
           </div>
 
           <div class="feild5">
@@ -79,7 +98,8 @@
         <img src="/images/dummy.png" alt="dummy" />
       </div>
       <div class="box2">
-        <form class="signupForm" action="/creds" method="post">
+
+        <form class="signupForm" action="/user/signUp" method="post">
           <label><h1>SIGNUP</h1></label>
 
           <div class="feild1">
@@ -130,9 +150,28 @@
             />
           </div>
 
-          <div class="feild4">
+          <!-- <div class="feild4">
             <input type="radio" name="terms" />
             <label for="terms">I agree to all terms and condition</label>
+          </div> -->
+
+          <div class="feild4">
+            <p>Select role :</p>
+
+            <label>
+              <input type="radio" name="role" value="Admin" />
+              admin
+            </label>
+
+            <label>
+              <input type="radio" name="role" value="Teacher" />
+              teacher
+            </label>
+
+            <label>
+              <input type="radio" name="role" value="Student" />
+              student
+            </label>
           </div>
 
           <div class="feild5">

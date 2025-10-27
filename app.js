@@ -7,6 +7,8 @@ const path = require("path");
 
 const debug = require("debug")("development:server"); //setting namespace with env and coing file name
 
+//routes conv
+const userRoutes = require("./routes/userRoutes.js");
 
 //db config
 const connDB = require("./config/mongooseConnection");
@@ -27,12 +29,11 @@ app.use(cookieParser());
 
 app.use(express.urlencoded({ extended: true }));
 
+//routes handling 1
+app.use("/user" , userRoutes);
+
 app.get('/', (req, res) => {
   res.render("login");
-});
-
-app.get('/login', (req, res) => {
-  res.send('Hello World!')
 });
 
 app.listen(port, () => {

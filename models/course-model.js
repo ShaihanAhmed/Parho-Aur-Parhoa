@@ -7,17 +7,17 @@ const mongoose = require("mongoose");
 const courseSchema = new mongoose.Schema(
   {
     //shared att
-    Name: { type: String, required: true },
+    name: { type: String, required: true },
 
-    CreatedBy: { type: mongoose.Schema.Types.ObjectId , ref : "User" , required: true },
+    createdBy: { type: mongoose.Schema.Types.ObjectId , ref : "User" , required: true },
     
-    Announcements: [
+    announcements: [
       { type: mongoose.Schema.Types.ObjectId, ref: "Announcement" },
     ],
 
-    Resources : [{ type: mongoose.Schema.Types.ObjectId, ref: "Resource" }],
+    resources : [{ type: mongoose.Schema.Types.ObjectId, ref: "Resource" }],
 
-    Quizzes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Quiz" }],
+    quizzes: [{ type: mongoose.Schema.Types.ObjectId, ref: "Quiz" }],
 
 },
 
