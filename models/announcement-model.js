@@ -1,0 +1,21 @@
+//add in docs :
+//announcements schema defined with each att and its expected datatype with proper refrencing to diff models
+//catering speration of concers
+
+const mongoose = require("mongoose");
+
+const announcementSchema = new mongoose.Schema(
+  {
+    //shared att
+    Message: { type: String, required: true },
+
+    CreatedBy: { type: mongoose.Schema.Types.ObjectId , ref : "User" , required : true },
+},
+
+  {
+    timestamps: true, //created / upd handled
+  }
+);
+
+//default exp
+module.exports = mongoose.model("Announcement", announcementSchema);
