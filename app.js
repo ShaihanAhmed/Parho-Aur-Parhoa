@@ -28,11 +28,11 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.render("login");
 });
 
 app.get('/login', (req, res) => {
-  res.render("login");
+  res.send('Hello World!')
 });
 
 app.listen(port, () => {
