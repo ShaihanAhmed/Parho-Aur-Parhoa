@@ -7,12 +7,23 @@
     <title>LOGIN&SIGNUP</title>
   </head>
   <body>
+    <!-- ssr err handling -- debugging --> 
+
+    <% if (typeof error !== 'undefined') { %>
+    <div
+      class="error-message"
+      style="color: red; text-align: center; padding: 10px"
+    >
+      <%= error %>
+    </div>
+    <% } %>
+
     <div class="signupHolder">
       <div class="box1">
         <form class="signupForm" action="/user/login" method="post">
           <label><h1>LOGIN</h1></label>
 
-          <div class="feild1">
+          <!-- <div class="feild1">
             <label for="name"
               ><img
                 src="/images/Vector1.png"
@@ -26,7 +37,7 @@
               name="name"
               placeholder="Enter Username"
             />
-          </div>
+          </div> -->
 
           <div class="feild2">
             <label for="email"
@@ -98,7 +109,6 @@
         <img src="/images/dummy.png" alt="dummy" />
       </div>
       <div class="box2">
-
         <form class="signupForm" action="/user/signUp" method="post">
           <label><h1>SIGNUP</h1></label>
 
@@ -144,7 +154,7 @@
             /></label>
             <input
               class="input-border"
-              type="text"
+              type="password"
               name="password"
               placeholder="Enter password"
             />

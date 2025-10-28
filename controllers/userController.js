@@ -11,7 +11,16 @@ const loginUser = async (req, res) => {
     const existingUser = await User.findOne({ email });
 
     if (!existingUser) {
-      return res.redirect("/");
+      // return res.redirect("/");
+      return res.status(400).json({
+        message : "User not found with these credentials!",
+      })
+    }
+
+    if(existingUser.role !== role){
+      return res.status(400).json({
+        message : "User does not have access to this role!",
+      })
     }
 
     const correctUser = await existingUser.comparePasswords(password); //boolean return
@@ -52,12 +61,13 @@ const loginUser = async (req, res) => {
 const signUpUser = async (req, res) => {
   const { name , email, password, role } = req.body; //Note : ensure that form fields name are following through - rest of the fields pic 
 
-  console.log("role : " , role);
+  console.log("role : " , role);//debugging
+
   try {
 
     if(!name || !email || !password || !role){
-        return res.status(400).json({
-            message : "All feilds are necessary!",
+        return res.status(400).render('login',{
+            error : "All feilds are necessary!",
         })
     }
 
@@ -65,7 +75,9 @@ const signUpUser = async (req, res) => {
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
-      return res.redirect("/");
+      return res.status(400).render('login' , {
+        error : "You already have an account!",
+      });
     }
 
     const newUser = await User.create({
@@ -124,9 +136,9 @@ const isLoggedIn = (role) => {
       }
 
       //rbac control
-      if (role && role !== user.role) {
-        return res.redirect("/");
-      }
+      // if (role && role.toLowerCase() !== user.role.toLowerCase()) {
+      //   return res.redirect("/");
+      // }
 
       req.user = user;
 

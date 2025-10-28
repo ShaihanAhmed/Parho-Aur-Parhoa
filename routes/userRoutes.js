@@ -9,11 +9,11 @@ router.post('/login', loginUser); // /user/login
 router.post('/signUp', signUpUser);
 
 router.get("/student-Dashboard" , isLoggedIn("Student") , (req , res) => { 
-    res.render("studentDashboard");
+    res.render("studentDashboard" , {user : req.user});
  });
 
 router.get("/teacher-Dashboard" , isLoggedIn("Teacher") , (req , res) => { 
-    res.render("teacherDashboard");
+    res.render("teacherDashboard" , {user : req.user});
  });
 
 module.exports = router;

@@ -33,7 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/user" , userRoutes);
 
 app.get('/', (req, res) => {
-  res.render("login");
+  res.render("login" , {error : undefined});
 });
 
 app.listen(port, () => {
