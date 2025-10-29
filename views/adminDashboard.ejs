@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,5 +13,154 @@
   </button>
 </form>
 
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - ParhoAurParhao</title>
+    <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <h2 class="app-name">ParhoAurParhao</h2>
+        </div>
+        <div class="nav-center">
+            <h1 class="panel-title">Admin Control Panel</h1>
+        </div>
+        <div class="nav-right">
+            <div class="admin-profile">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Admin" alt="Admin" class="profile-pic">
+                <span class="admin-name">Admin Ali</span>
+            </div>
+            <button class="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Layout -->
+    <main class="main-container">
+        <!-- Left Section - Main Content -->
+        <section class="content-section">
+            <div class="switch-panel">
+                <button class="switch-btn active" data-view="users">Users</button>
+                <button class="switch-btn" data-view="courses">Courses</button>
+            </div>
+
+            <!-- Users View -->
+            <div class="view-content users-view active">
+                <div class="filter-bar">
+                    <select class="user-type-dropdown">
+                        <option value="all">All Users</option>
+                        <option value="teachers">Teachers</option>
+                        <option value="students">Students</option>
+                    </select>
+                </div>
+
+                <div class="users-list">
+                    <div class="user-card">
+                        <div class="user-info">
+                            <h3 class="user-name">Sarah Ahmed</h3>
+                            <span class="status active">Active</span>
+                        </div>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+
+                    <div class="user-card">
+                        <div class="user-info">
+                            <h3 class="user-name">Muhammad Khan</h3>
+                            <span class="status active">Active</span>
+                        </div>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+
+                    <div class="user-card">
+                        <div class="user-info">
+                            <h3 class="user-name">Fatima Ali</h3>
+                            <span class="status inactive">Inactive</span>
+                        </div>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+
+                    <div class="user-card">
+                        <div class="user-info">
+                            <h3 class="user-name">Hassan Raza</h3>
+                            <span class="status active">Active</span>
+                        </div>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+
+                    <div class="user-card">
+                        <div class="user-info">
+                            <h3 class="user-name">Aisha Malik</h3>
+                            <span class="status inactive">Inactive</span>
+                        </div>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Courses View -->
+            <div class="view-content courses-view">
+                <div class="courses-list">
+                    <div class="course-card">
+                        <div class="course-info">
+                            <h3 class="course-name">Neural Networks Basics</h3>
+                            <span class="course-subject">Science</span>
+                        </div>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-info">
+                            <h3 class="course-name">Linear Equations</h3>
+                            <span class="course-subject">Maths</span>
+                        </div>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-info">
+                            <h3 class="course-name">English Grammar</h3>
+                            <span class="course-subject">Language</span>
+                        </div>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-info">
+                            <h3 class="course-name">Programming Logic</h3>
+                            <span class="course-subject">Coding</span>
+                        </div>
+                        <button class="delete-btn">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Section - Stats Panel -->
+        <aside class="stats-panel">
+            <div class="stat-box stat-users">
+                <h3 class="stat-title">Total Users</h3>
+                <p class="stat-value">1,247</p>
+            </div>
+
+            <div class="stat-box stat-courses">
+                <h3 class="stat-title">Total Courses</h3>
+                <p class="stat-value">89</p>
+            </div>
+
+            <div class="stat-box stat-placeholder">
+                <h3 class="stat-title">Engagement Rate</h3>
+                <p class="stat-value">84%</p>
+            </div>
+        </aside>
+    </main>
+
+    <script src="/js/admin.js"></script>
 </body>
 </html>

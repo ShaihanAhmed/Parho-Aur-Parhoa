@@ -9,29 +9,47 @@ const loginUser = async (req, res) => {
   const { email, password, role } = req.body; //Note : ensure that form fields name are following through
 
   try {
+     if (!email || !password || !role) {
+      return res.status(400).render("login", {
+        error: "All fields are required!",
+      });
+    }
+
     const existingUser = await User.findOne({ email });
 
     if (!existingUser) {
 
-      return res.status(400).json({
-        message:
-          "User not found with these credentials!(existing user not found)",
+      // return res.status(400).json({
+      //   message:
+      //     "User not found with these credentials!(existing user not found)",
+      // });
+
+      return res.status(400).render("login" , {
+        error : "User not found!",
       });
     }
 
     if (existingUser.role !== role) {
-      return res.status(400).json({
-        message:
-          "User does not have access to this role!(existing user didnt have req role)",
+      // return res.status(400).json({
+      //   message:
+      //     "User does not have access to this role!(existing user didnt have req role)",
+      // });
+
+      return res.status(400).render("login" , {
+        error : "ACCESS DENIED!",
       });
     }
 
     const correctUser = await existingUser.comparePasswords(password); //boolean return
 
     if (!correctUser) {
-      return res.status(400).json({
-        message:
-          "Sorry invalid credentials entered!(wrong passw for correctUser)",
+      // return res.status(400).json({
+      //   message:
+      //     "Sorry invalid credentials entered!(wrong passw for correctUser)",
+      // });
+
+      return res.status(400).render("login" , {
+        error : "INVALID CREDENTIALS!",
       });
     }
 
@@ -59,6 +77,7 @@ const loginUser = async (req, res) => {
     res.status(500).json({
       message: "Some err occurred while server processing!",
     });
+
   }
 };
 
@@ -108,7 +127,7 @@ const signUpUser = async (req, res) => {
   try {
     if (!name || !email || !password || !role) {
       return res.status(400).render("login", {
-        error: "All fields are necessary! (some form fields were missing)",
+        error: "All fields are necessary!",
       });
     }
 
