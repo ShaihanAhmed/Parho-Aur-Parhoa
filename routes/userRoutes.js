@@ -1,5 +1,5 @@
 const express = require("express"); //3
-const {loginUser , isLoggedIn , signUpUser} = require("../controllers/userController.js");
+const {loginUser , isLoggedIn , signUpUser , logoutUser} = require("../controllers/userController.js");
 
 const router = express.Router();
 
@@ -12,8 +12,15 @@ router.get("/student-Dashboard" , isLoggedIn("Student") , (req , res) => {
     res.render("studentDashboard" , {user : req.user});
  });
 
-router.get("/teacher-Dashboard" , isLoggedIn("Teacher") , (req , res) => { 
+router.get("/teacher-Dashboard" , isLoggedIn("Teacher") , (req , res) => {  // 
     res.render("teacherDashboard" , {user : req.user});
  });
+
+router.get("/admin-Dashboard" , isLoggedIn("Admin") , (req , res) => { 
+    res.render("adminDashboard" , {user : req.user});
+ });
+
+
+router.get('/logout' , isLoggedIn() , logoutUser);
 
 module.exports = router;

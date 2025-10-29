@@ -26,6 +26,77 @@ body {
   align-items: center;
 }
 
+.appName{
+  color: white;
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 3em;
+  font-weight: bold;
+
+  z-index: 1000; 
+
+  background: linear-gradient(90deg, #ff6ec4, #7873f5);
+
+  border-radius: 10px;
+  padding: 8px;
+}
+
+/* .error-message{
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 3em;
+  font-weight: bold;
+
+  z-index: 1000;
+} */
+
+.error-message {
+  position: fixed;
+  top: 60px; /* 👇 comes a bit more down from top */
+  left: 50%;
+  transform: translateX(-50%);
+  
+  font-size: 1.2em; /* ✅ perfect readable size */
+  font-weight: 600;
+  z-index: 1000;
+
+  background-color: white; /* Bootstrap-style red */
+  color: red;
+  padding: 10px 25px; /* nicely balanced padding */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* subtle shadow for contrast */
+
+  opacity: 0;
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+
+/* ✨ Smooth slide + fade animation */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px); /* starts slightly higher */
+  }
+  15% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* slides into view */
+  }
+  85% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px); /* slides back up */
+  }
+}
+
+
 .signupHolder {
   width: 70%;
   height: 75%;
@@ -36,6 +107,7 @@ body {
   display: flex;
   position: relative;
 }
+
 
 .dummy {
   width: 50%;

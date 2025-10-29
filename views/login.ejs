@@ -9,35 +9,20 @@
   <body>
     <!-- ssr err handling -- debugging --> 
 
+    
+    <h1 class="appName">PARHO AUR PARHOA</h1>
+
     <% if (typeof error !== 'undefined') { %>
-    <div
-      class="error-message"
-      style="color: red; text-align: center; padding: 10px"
-    >
-      <%= error %>
-    </div>
-    <% } %>
+  <div class="error-message" style="color: red; text-align: center; padding: 10px">
+    <%= error %>
+  </div>
+  <% } %>
 
     <div class="signupHolder">
+
       <div class="box1">
         <form class="signupForm" action="/user/login" method="post">
           <label><h1>LOGIN</h1></label>
-
-          <!-- <div class="feild1">
-            <label for="name"
-              ><img
-                src="/images/Vector1.png"
-                alt="name"
-                width="20px"
-                height="20px"
-            /></label>
-            <input
-              class="input-border"
-              type="text"
-              name="name"
-              placeholder="Enter Username"
-            />
-          </div> -->
 
           <div class="feild2">
             <label for="email"
@@ -70,11 +55,6 @@
               placeholder="Enter password"
             />
           </div>
-
-          <!-- <div class="feild4">
-            <input type="radio" name="terms" />
-            <label for="terms">I agree to all terms and condition</label>
-          </div> -->
 
           <div class="feild4">
             <p>Select role :</p>
