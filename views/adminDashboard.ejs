@@ -1,166 +1,231 @@
-<!-- <!DOCTYPE html>
+<!-- Note : SSR is left by ejs rn a dummy html code to show cleint and get his approvol for admin UI -->
+
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADMIN PANEL</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Dashboard - ParhoAurParhao</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/admin.css" />
 </head>
+
 <body>
-    <h1>admin panel</h1>
-    <form action="/user/logout" method="get">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <div class="logo-title">
+        <img src="/images/papLogo.jpeg" alt="Parho Aur Parhao Logo" class="logo-img">
+
+        <h1 class="logo-text">PARHO AUR PARHAO</h1>
+      </div>
+
+      <div class="brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path d="M12 2l8 4v8l-8 8-8-8V6l8-4z" stroke="white" stroke-width="1.2" fill="none"></path>
+        </svg>
+        <span class="brand-text">Dashboard <small class="v">v.01</small></span>
+      </div>
+
+
+      <nav class="nav">
+        <a href="#" class="nav-item active" data-section="dashboard">
+          <span class="nav-icon"></span>
+          <span class="nav-label">Dashboard</span>
+        </a>
+
+        <a href="#" class="nav-item" data-section="todo">
+          <span class="nav-icon"></span>
+          <span class="nav-label">To-Do List</span>
+        </a>
+
+        <a href="#" class="nav-item" data-section="users">
+          <span class="nav-icon"></span>
+          <span class="nav-label">View Users</span>
+        </a>
+
+        <a href="#" class="nav-item" data-section="courses">
+          <span class="nav-icon"></span>
+          <span class="nav-label">View Courses</span>
+        </a>
+
+        <a href="#" class="nav-item" data-section="analytics">
+          <span class="nav-icon"></span>
+          <span class="nav-label">Analytics</span>
+        </a>
+
+        <a href="#" class="nav-item" data-section="help">
+          <span class="nav-icon"></span>
+          <span class="nav-label">Help</span>
+        </a>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="sidebar-divider"></div>
+  <div class="main" id="main">
+    <header class="top">
+      <div class="greeting">
+        <h2>Hello Shaihan <span class="wave">👋</span>,</h2>
+      </div>
+
+      <div class="top-right">
+        <div class="admin-info-top">
+          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Shaihan" alt="Admin" class="admin-avatar">
+          <div class="admin-details">
+            <span class="admin-name">Shaihan</span>
+            <span class="admin-role">Project Manager</span>
+          </div>
+        </div>
+
+        <form action="/user/logout" method="get">
   <button type="submit" style="padding: 6px 12px; border: none; background-color: crimson; color: white; border-radius: 8px; cursor: pointer;">
     Logout
   </button>
 </form>
 
+        <button class="hamburger" id="hamburger" aria-label="open menu">☰</button>
+      </div>
+    </header>
+
+   
+    <section class="summary">
+      <div class="card stat">
+        <div class="stat-left">
+          <div class="stat-icon">👥</div>
+        </div>
+        <div class="stat-right">
+          <div class="stat-label">New Users Joining</div>
+          <div class="stat-number" data-target="500">0</div>
+        </div>
+      </div>
+
+      <div class="card stat">
+        <div class="stat-left">
+          <div class="stat-icon">➕</div>
+        </div>
+        <div class="stat-right">
+          <div class="stat-label">New Courses Added</div>
+          <div class="stat-number" data-target="20">0</div>
+        </div>
+      </div>
+
+      <div class="card stat">
+        <div class="stat-left">
+          <div class="stat-icon">💻</div>
+        </div>
+        <div class="stat-right">
+          <div class="stat-label">Active Now</div>
+          <div class="stat-number" data-target="123">0</div>
+          <div class="avatars">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <section class="content-card">
+      <div class="content-card-head">
+        <h3>All Users</h3>
+        <div class="controls">
+          <div class="subtext">Active Members</div>
+          <div class="search-small">
+            <input type="search" placeholder="Search" />
+          </div>
+        </div>
+      </div>
+
+      <!-- This is all dummy data right now -->
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>User Name</th>
+              <th>Student/Teacher</th>
+              <th>Email</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jane Cooper</td>
+              <td>Student</td>
+              <td>jane@microsoft.com</td>
+              <td><span class="pill active">Active</span></td>
+            </tr>
+            <tr>
+              <td>Floyd Miles</td>
+              <td>Student</td>
+              <td>floyd@yahoo.com</td>
+              <td><span class="pill inactive">Inactive</span></td>
+            </tr>
+            <tr>
+              <td>Ali</td>
+              <td>Teacher</td>
+              <td>ronald@adobe.com</td>
+              <td><span class="pill inactive">Inactive</span></td>
+            </tr>
+            <tr>
+              <td>Marvin McKinney</td>
+              <td>Student</td>
+              <td>marvin@tesla.com</td>
+              <td><span class="pill active">Active</span></td>
+            </tr>
+            <tr>
+              <td>Jerome Bell</td>
+              <td>Teacher</td>
+              <td>jerome@google.com</td>
+              <td><span class="pill active">Active</span></td>
+            </tr>
+            <tr>
+              <td>Kathryn Murphy</td>
+              <td>Teacher</td>
+              <td>kathryn@microsoft.com</td>
+              <td><span class="pill active">Active</span></td>
+            </tr>
+            <tr>
+              <td>Jacob Jones</td>
+              <td>Student</td>
+              <td>jacob@yahoo.com</td>
+              <td><span class="pill active">Active</span></td>
+            </tr>
+            <tr>
+              <td>Kristin Watson</td>
+              <td>Student</td>
+              <td>kristin@facebook.com</td>
+              <td><span class="pill inactive">Inactive</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-footer"></div>
+        <div class="pages">
+          <button class="page">‹</button>
+          <button class="page active">1</button>
+          <button class="page">2</button>
+          <button class="page">3</button>
+          <button class="page">4</button>
+          <button class="page">›</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="todo-panel">
+    <h3>To-Do List</h3>
+    <ul class="todo-list">
+      <li class="completed"><span class="check">&#10003;</span> Review new user signups</li>
+      <li><span class="circle"></span> Approve pending courses</li>
+      <li><span class="circle"></span> Update analytics chart</li>
+      <li class="completed"><span class="check">&#10003;</span> Send email to teachers</li>
+      <li><span class="circle"></span> Prepare monthly report</li>
+    </ul>
+  </div>
+
+  <script src="/js/admin.js"></script>
 </body>
-</html> -->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - ParhoAurParhao</title>
-    <link rel="stylesheet" href="/css/admin.css">
-</head>
-<body>
-    <!-- Top Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-left">
-            <h2 class="app-name">ParhoAurParhao</h2>
-        </div>
-        <div class="nav-center">
-            <h1 class="panel-title">Admin Control Panel</h1>
-        </div>
-        <div class="nav-right">
-            <div class="admin-profile">
-                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Admin" alt="Admin" class="profile-pic">
-                <span class="admin-name">Admin Ali</span>
-            </div>
-            <button class="logout-btn">Logout</button>
-        </div>
-    </nav>
-
-    <!-- Main Layout -->
-    <main class="main-container">
-        <!-- Left Section - Main Content -->
-        <section class="content-section">
-            <div class="switch-panel">
-                <button class="switch-btn active" data-view="users">Users</button>
-                <button class="switch-btn" data-view="courses">Courses</button>
-            </div>
-
-            <!-- Users View -->
-            <div class="view-content users-view active">
-                <div class="filter-bar">
-                    <select class="user-type-dropdown">
-                        <option value="all">All Users</option>
-                        <option value="teachers">Teachers</option>
-                        <option value="students">Students</option>
-                    </select>
-                </div>
-
-                <div class="users-list">
-                    <div class="user-card">
-                        <div class="user-info">
-                            <h3 class="user-name">Sarah Ahmed</h3>
-                            <span class="status active">Active</span>
-                        </div>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-
-                    <div class="user-card">
-                        <div class="user-info">
-                            <h3 class="user-name">Muhammad Khan</h3>
-                            <span class="status active">Active</span>
-                        </div>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-
-                    <div class="user-card">
-                        <div class="user-info">
-                            <h3 class="user-name">Fatima Ali</h3>
-                            <span class="status inactive">Inactive</span>
-                        </div>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-
-                    <div class="user-card">
-                        <div class="user-info">
-                            <h3 class="user-name">Hassan Raza</h3>
-                            <span class="status active">Active</span>
-                        </div>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-
-                    <div class="user-card">
-                        <div class="user-info">
-                            <h3 class="user-name">Aisha Malik</h3>
-                            <span class="status inactive">Inactive</span>
-                        </div>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Courses View -->
-            <div class="view-content courses-view">
-                <div class="courses-list">
-                    <div class="course-card">
-                        <div class="course-info">
-                            <h3 class="course-name">Neural Networks Basics</h3>
-                            <span class="course-subject">Science</span>
-                        </div>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-
-                    <div class="course-card">
-                        <div class="course-info">
-                            <h3 class="course-name">Linear Equations</h3>
-                            <span class="course-subject">Maths</span>
-                        </div>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-
-                    <div class="course-card">
-                        <div class="course-info">
-                            <h3 class="course-name">English Grammar</h3>
-                            <span class="course-subject">Language</span>
-                        </div>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-
-                    <div class="course-card">
-                        <div class="course-info">
-                            <h3 class="course-name">Programming Logic</h3>
-                            <span class="course-subject">Coding</span>
-                        </div>
-                        <button class="delete-btn">Delete</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Right Section - Stats Panel -->
-        <aside class="stats-panel">
-            <div class="stat-box stat-users">
-                <h3 class="stat-title">Total Users</h3>
-                <p class="stat-value">1,247</p>
-            </div>
-
-            <div class="stat-box stat-courses">
-                <h3 class="stat-title">Total Courses</h3>
-                <p class="stat-value">89</p>
-            </div>
-
-            <div class="stat-box stat-placeholder">
-                <h3 class="stat-title">Engagement Rate</h3>
-                <p class="stat-value">84%</p>
-            </div>
-        </aside>
-    </main>
-
-    <script src="/js/admin.js"></script>
-</body>
 </html>

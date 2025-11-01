@@ -58,33 +58,33 @@ body {
 
 .error-message {
   position: fixed;
-  top: 60px; /* 👇 comes a bit more down from top */
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
   
-  font-size: 1.2em; /* ✅ perfect readable size */
+  font-size: 1.2em;
   font-weight: 600;
   z-index: 1000;
 
-  background-color: white; /* Bootstrap-style red */
+  background-color: white;
   color: red;
-  padding: 10px 25px; /* nicely balanced padding */
+  padding: 10px 25px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* subtle shadow for contrast */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 
   opacity: 0;
   animation: fadeInOut 3s ease-in-out forwards;
 }
 
-/* ✨ Smooth slide + fade animation */
+/* for fading away */
 @keyframes fadeInOut {
   0% {
     opacity: 0;
-    transform: translateX(-50%) translateY(-20px); /* starts slightly higher */
+    transform: translateX(-50%) translateY(-20px);
   }
   15% {
     opacity: 1;
-    transform: translateX(-50%) translateY(0); /* slides into view */
+    transform: translateX(-50%) translateY(0);
   }
   85% {
     opacity: 1;
@@ -92,7 +92,7 @@ body {
   }
   100% {
     opacity: 0;
-    transform: translateX(-50%) translateY(-20px); /* slides back up */
+    transform: translateX(-50%) translateY(-20px);
   }
 }
 
