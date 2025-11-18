@@ -1,6 +1,6 @@
 <!-- Note : SSR is left by ejs rn a dummy html code to show cleint and get his approvol for admin UI -->
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -137,7 +137,6 @@
         </div>
       </div>
 
-      <!-- This is all dummy data right now -->
       <div class="table-wrap">
         <table class="table">
           <thead>
@@ -228,4 +227,214 @@
   <script src="/js/admin.js"></script>
 </body>
 
+</html> -->
+
+
+<!-- this is my fallback point above workiing code -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />  
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Dashboard - ParhoAurParhao</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+
+<body>
+
+  <!-- ===== SAFE FALLBACKS (NO CRASH) ===== -->
+  <%  
+      const Admin = admin || { 
+        name: "Admin", 
+        role: "Administrator",
+        avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=DefaultAdmin"
+      };
+
+      const Users = Array.isArray(users) ? users : [
+        { name: "Jane Cooper", role: "Student", email: "jane@example.com", isActive: true },
+        { name: "Floyd Miles", role: "Student", email: "floyd@example.com", isActive: false },
+        { name: "Ali", role: "Teacher", email: "ali@example.com", isActive: false },
+        { name: "Jerome Bell", role: "Teacher", email: "jerome@example.com", isActive: true }
+      ];
+
+      const Courses = Array.isArray(courses) ? courses : [
+        { name: "Sample Course 1", createdBy: "Admin" },
+        { name: "Sample Course 2", createdBy: "Admin" }
+      ];
+
+      const TotalUsers = userCount || Users.length;
+      const ActiveUsers = activeUsers || 10;
+      const TotalCourses = courseCount || Courses.length;
+  %>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <div class="logo-title">
+        <img src="/images/papLogo.jpeg" alt="Parho Aur Parhao Logo" class="logo-img">
+
+        <h1 class="logo-text">PARHO AUR PARHAO</h1>
+      </div>
+
+      <div class="brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path d="M12 2l8 4v8l-8 8-8-8V6l8-4z" stroke="white" stroke-width="1.2" fill="none"></path>
+        </svg>
+        <span class="brand-text">Dashboard <small class="v">v.01</small></span>
+      </div>
+
+      <nav class="nav">
+        <a href="#" class="nav-item active" data-section="dashboard">
+          <span class="nav-icon"></span>
+          <span class="nav-label">Dashboard</span>
+        </a>
+
+        <a href="#" class="nav-item" data-section="todo">
+          <span class="nav-icon"></span>
+          <span class="nav-label">To-Do List</span>
+        </a>
+
+        <a href="#" class="nav-item" data-section="users">
+          <span class="nav-icon"></span>
+          <span class="nav-label">View Users</span>
+        </a>
+
+        <a href="#" class="nav-item" data-section="courses">
+          <span class="nav-icon"></span>
+          <span class="nav-label">View Courses</span>
+        </a>
+
+        <a href="#" class="nav-item" data-section="analytics">
+          <span class="nav-icon"></span>
+          <span class="nav-label">Analytics</span>
+        </a>
+
+        <a href="#" class="nav-item" data-section="help">
+          <span class="nav-icon"></span>
+          <span class="nav-label">Help</span>
+        </a>
+      </nav>
+    </div>
+  </aside>
+
+  <div class="sidebar-divider"></div>
+
+  <div class="main" id="main">
+    <header class="top">
+      <div class="greeting">
+        <h2>Hello <%= Admin.name %> <span class="wave">👋</span>,</h2>
+      </div>
+
+      <div class="top-right">
+        <div class="admin-info-top">
+          <img src="/images/papLogo.jpeg" alt="Admin" class="admin-avatar">
+          <div class="admin-details">
+            <span class="admin-name"><%= Admin.name %></span>
+            <span class="admin-role"><%= Admin.role %></span>
+          </div>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="open menu">☰</button>
+      </div>
+    </header>
+
+    <!-- ===== STATS ===== -->
+    <section class="summary">
+      <div class="card stat">
+        <div class="stat-left"><div class="stat-icon">👥</div></div>
+        <div class="stat-right">
+          <div class="stat-label">New Users Joining</div>
+          <div class="stat-number" data-target="<%= TotalUsers %>">0</div>
+        </div>
+      </div>
+
+      <div class="card stat">
+        <div class="stat-left"><div class="stat-icon">➕</div></div>
+        <div class="stat-right">
+          <div class="stat-label">New Courses Added</div>
+          <div class="stat-number" data-target="<%= TotalCourses %>">0</div>
+        </div>
+      </div>
+
+      <div class="card stat">
+        <div class="stat-left"><div class="stat-icon">💻</div></div>
+        <div class="stat-right">
+          <div class="stat-label">Active Now</div>
+          <div class="stat-number" data-target="<%= ActiveUsers %>">0</div>
+          <div class="avatars"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== USERS TABLE ===== -->
+    <section class="content-card">
+      <div class="content-card-head">
+        <h3>All Users</h3>
+
+        <div class="controls">
+          <div class="subtext">Active Members</div>
+          <div class="search-small"><input type="search" placeholder="Search" /></div>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>User Name</th>
+              <th>Student/Teacher</th>
+              <th>Email</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% Users.forEach(u => { %>
+              <tr>
+                <td><%= u.name %></td>
+                <td><%= u.role %></td>
+                <td><%= u.email %></td>
+                <td>
+                  <% if (u.isActive) { %>
+                    <span class="pill active">Active</span>
+                  <% } else { %>
+                    <span class="pill inactive">Inactive</span>
+                  <% } %>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-footer">
+        <div class="pages">
+          <button class="page">‹</button>
+          <button class="page active">1</button>
+          <button class="page">2</button>
+          <button class="page">3</button>
+          <button class="page">4</button>
+          <button class="page">›</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="todo-panel">
+    <h3>To-Do List</h3>
+    <ul class="todo-list">
+      <li class="completed"><span class="check">&#10003;</span> Review new user signups</li>
+      <li><span class="circle"></span> Approve pending courses</li>
+      <li><span class="circle"></span> Update analytics chart</li>
+      <li class="completed"><span class="check">&#10003;</span> Send email to teachers</li>
+      <li><span class="circle"></span> Prepare monthly report</li>
+    </ul>
+  </div>
+
+  <script src="/js/admin.js"></script>
+</body>
 </html>
