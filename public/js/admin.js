@@ -68,3 +68,22 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCounter();
   });
 });
+
+async function deleteUser(id) {
+  if (!confirm(`Are you sure you want to delete this account? ${id}`)) return;
+
+  console.log(`${window.location.origin}`);
+
+  const response = await fetch(`/user/${id}`, {
+    method: "DELETE"
+  });
+
+  const result = await response.json();
+
+  if (response.ok) {
+    alert("User deleted successfully!");
+    location.reload();   // refresh page to update table
+  } else {
+    alert(result.message || "Error deleting user");
+  }
+}

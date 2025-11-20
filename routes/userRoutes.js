@@ -11,6 +11,9 @@ const router = express.Router();
 const User = require("../models/user-model.js");
 const Course = require("../models/course-model.js");
 
+const fs = require('fs');
+const path = require('path');
+
 //login pg form - 2
 router.post("/login", loginUser); // /user/login
 
@@ -22,7 +25,7 @@ router.get("/student-Dashboard", isLoggedIn("Student"), (req, res) => {
 
 router.get("/teacher-Dashboard", isLoggedIn("Teacher"), (req, res) => {
   //
-  res.render("teacherDashboard", { user: req.user });
+  res.render("teacherDashboard", { user: req.user }); //we need to send course data
 });
 
 //move back point incase route fails (fail safe)
@@ -30,6 +33,30 @@ router.get("/teacher-Dashboard", isLoggedIn("Teacher"), (req, res) => {
 // router.get("/admin-Dashboard" , isLoggedIn("Admin") , (req , res) => {
 //     res.render("adminDashboard" , {user : req.user});
 //  });
+
+function getLogs() {
+  try {
+    const data = fs.readFileSync(logFilePath, 'utf-8');
+    const lines = data.split('\n').filter(line => line.trim() !== '');
+
+    // Parse each line into an object with time and username
+    const logs = lines.map(line => {
+      // Example line: [2025-11-19T15:03:04.943Z] Admin DELETED user: test3 (#6904aaab48eb9946f1956782)
+      const timeMatch = line.match(/\[(.*?)\]/); // gets timestamp
+      const userMatch = line.match(/user: (\w+)/); // gets username (assuming simple usernames)
+      return {
+        time: timeMatch ? timeMatch[1] : 'Unknown',
+        username: userMatch ? userMatch[1] : 'Unknown',
+        raw: line // keep full line just in case
+      };
+    });
+
+    return logs;
+  } catch (err) {
+    console.error('Failed to read log file:', err);
+    return [];
+  }
+}
 
 router.get("/admin-Dashboard", isLoggedIn("Admin"), async (req, res) => {
   //for ssr
@@ -61,6 +88,8 @@ router.get("/admin-Dashboard", isLoggedIn("Admin"), async (req, res) => {
 
   const currCourses = await Course.countDocuments({});
 
+  const logs = getLogs();
+
   res.render("adminDashboard", {
     admin: req.user,
     users: allUsers,
@@ -68,7 +97,42 @@ router.get("/admin-Dashboard", isLoggedIn("Admin"), async (req, res) => {
     userCount: currUsers || 334,
     activeUsers: activeUsers || 200,
     courseCount: currCourses || 20,
+    logs: logs,
   });
+});
+
+const logFilePath = path.join(__dirname, '..', 'log.txt');
+
+function logAction(message) {
+  const timestamp = new Date().toISOString();
+  const logEntry = `[${timestamp}] ${message}\n`;
+
+  fs.appendFile(logFilePath, logEntry, (err) => {
+    if (err) {
+      console.error('Failed to write to log file:', err);
+    }
+  });
+}
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    console.log(id);
+
+    // Delete the user from MongoDB
+    const user = await User.findByIdAndDelete(id);
+
+    if (!user) return res.status(404).json({ message: "User not found" });
+
+    // Log action
+    logAction(`Admin DELETED user: ${user.name} (#${id})`);
+
+    res.json({ message: "User deleted", deletedUser: user });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
 });
 
 
@@ -76,3 +140,4 @@ router.get("/admin-Dashboard", isLoggedIn("Admin"), async (req, res) => {
 router.get("/logout", isLoggedIn(), logoutUser);
 
 module.exports = router;
+
