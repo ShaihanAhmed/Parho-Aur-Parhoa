@@ -10,6 +10,12 @@ const announcementSchema = new mongoose.Schema(
     message: { type: String, required: true },
 
     createdBy: { type: mongoose.Schema.Types.ObjectId , ref : "User" , required : true },
+
+    course: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Course",
+      required: true
+    },
 },
 
   {

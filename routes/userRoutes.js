@@ -23,10 +23,35 @@ router.get("/student-Dashboard", isLoggedIn("Student"), (req, res) => {
   res.render("studentDashboard", { user: req.user });
 });
 
-router.get("/teacher-Dashboard", isLoggedIn("Teacher"), (req, res) => {
-  //
-  res.render("teacherDashboard", { user: req.user }); //we need to send course data
+//                       -------------------------------for teacher endpoints -------------------------------
+
+// router.get("/teacher-Dashboard", isLoggedIn("Teacher"), (req, res) => {
+//   //
+//   res.render("teacherDashboard", { user: req.user }); //we need to send course data
+// });
+
+router.get("/teacher-Dashboard", isLoggedIn("Teacher"), async (req, res) => {
+  try {
+    const courses = await Course.find({ createdBy: req.user._id }).populate("resources");
+
+    res.render("teacherDashboard", {
+      user: req.user,
+      courses,
+      message: ""  // default empty
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.render("teacherDashboard", {
+      user: req.user,
+      courses: [],
+      message: `Error: ${err.message}`
+    });
+  }
 });
+
+
+//                       -------------------------------for admin endpoints -------------------------------
 
 //move back point incase route fails (fail safe)
 
