@@ -244,7 +244,7 @@
             <ul>
               <% course.resources.forEach(r => { %>
                 <li>
-                  <a href="<%= r?.fileUrl || '#' %>" target="_blank">
+                  <a href="<%= r?.fileUrl || '#' %>" download="<%= r?.title %>" target="_blank">
                     <%= r?.title || "Untitled file" %>
                   </a>
                   (<%= r?.fileType || "Unknown" %>)

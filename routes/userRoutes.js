@@ -32,7 +32,7 @@ router.get("/student-Dashboard", isLoggedIn("Student"), (req, res) => {
 
 router.get("/teacher-Dashboard", isLoggedIn("Teacher"), async (req, res) => {
   try {
-    const courses = await Course.find({ createdBy: req.user._id }).populate("resources");
+    const courses = await Course.find({ createdBy: req.user._id }).populate("resources").populate("quizzes").populate("announcements");
 
     res.render("teacherDashboard", {
       user: req.user,
