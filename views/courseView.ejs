@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <title><%= course.name %> - Course</title>
@@ -46,5 +46,253 @@
       <li>No quizzes</li>
     <% } %>
   </ul>
+</body>
+</html> -->
+
+
+<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= course.name %> - Course</title>
+    <style>
+        /* --- Color Palette based on the Admin Dashboard Image --- */
+        :root {
+            --sidebar-gradient: linear-gradient(180deg, #954D9A 0%, #E96479 100%); /* Purple to Pink */
+            --background-light: #F8F8FC; /* Very light, slightly cool background */
+            --card-white: #FFFFFF; /* Card background */
+            --text-dark: #333333; /* Primary dark text */
+            --text-light: #666666; /* Secondary text/subheadings */
+            --accent-pink: #E96479; /* Primary accent color */
+            --accent-green: #5CB85C; /* Status green */
+            --button-cyan: #55C4D7; /* Action button color */
+            --border-color: #EFEFEF; /* Very light border */
+        }
+
+        /* --- Global Styling --- */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            display: flex; /* Enable side-by-side layout */
+            min-height: 100vh;
+        }
+
+        /* --- Sidebar Styling (Mimics Admin Dashboard) --- */
+        .sidebar {
+            width: 250px;
+            background: var(--sidebar-gradient);
+            color: var(--card-white);
+            padding: 20px 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0; /* Prevents sidebar from shrinking */
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            padding: 0 25px 30px;
+        }
+
+        .logo-text {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* Navigation Links */
+        .nav-link {
+            display: block;
+            text-decoration: none;
+            color: var(--card-white);
+            padding: 12px 25px;
+            margin: 5px 0;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link.back-to-dashboard {
+            /* Mimics the highlighted link in the admin dashboard */
+            background-color: rgba(255, 255, 255, 0.2);
+            border-left: 4px solid var(--card-white);
+            font-weight: bold;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- Main Content Area --- */
+        .main-content {
+            flex-grow: 1;
+            padding: 30px 40px;
+        }
+
+        /* --- Header and Course Name --- */
+        h1 {
+            color: var(--text-dark);
+            font-size: 2.2em;
+            padding-bottom: 5px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        /* --- Section Styling (Announcements, Resources, Quizzes) --- */
+        h2 {
+            color: var(--text-dark);
+            font-size: 1.6em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        li {
+            background-color: var(--card-white);
+            padding: 18px 25px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--accent-pink); /* Accent stripe for importance */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        li:hover {
+            transform: translateY(-2px);
+        }
+
+        /* --- Link and Resource Styling --- */
+        li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        li a:hover {
+            color: var(--accent-pink);
+        }
+
+        /* Resource Icon */
+        .resource-icon {
+            color: var(--button-cyan);
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        /* Quiz Title */
+        .quiz-title {
+            flex-grow: 1; /* Allows title to take up space */
+            font-weight: 600;
+        }
+
+        /* --- Quiz Button Styling --- */
+        button {
+            background-color: var(--button-cyan);
+            color: var(--card-white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.2s;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: #48B0C4;
+            box-shadow: 0 4px 8px rgba(0, 191, 255, 0.2);
+        }
+
+        /* --- Empty State Styling --- */
+        .no-content {
+            font-style: italic;
+            color: var(--text-light);
+            padding: 15px 25px;
+            border-left: 4px solid var(--border-color); /* Light border for empty state */
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="sidebar">
+        <div class="logo-section">
+            <span style="font-size: 2em;">&#127891;</span> <div class="logo-text">PARHAO AUR PARHAO</div>
+        </div>
+
+        <a href="/user/student-Dashboard" class="nav-link back-to-dashboard">
+            ← Back to Dashboard
+        </a>
+    </div>
+
+    <div class="main-content">
+        <h1>Hi, <%= course.name %></h1>
+
+        <div class="section-announcements">
+            <h2>Announcements</h2>
+            <ul>
+                <% if (course.announcements.length > 0) { %>
+                    <% course.announcements.forEach(a => { %>
+                        <li><span style="color: var(--accent-pink); margin-right: 10px;">&#9888;</span> <%= a.message %></li>
+                    <% }) %>
+                <% } else { %>
+                    <li class="no-content">No announcements</li>
+                <% } %>
+            </ul>
+        </div>
+
+        <div class="section-resources">
+            <h2>Resources</h2>
+            <ul>
+                <% if (course.resources.length > 0) { %>
+                    <% course.resources.forEach(r => { %>
+                        <li>
+                            <a href="<%= r.fileUrl %>" target="_blank">
+                                <span class="resource-icon">&#128193;</span> <%= r.title %>
+                            </a>
+                            <span></span> 
+                        </li>
+                    <% }) %>
+                <% } else { %>
+                    <li class="no-content">No resources</li>
+                <% } %>
+            </ul>
+        </div>
+
+        <div class="section-quizzes">
+            <h2>Quizzes</h2>
+            <ul>
+                <% if (course.quizzes.length > 0) { %>
+                    <% course.quizzes.forEach(q => { %>
+                        <li>
+                            <span class="quiz-title"><span style="color: var(--accent-green); margin-right: 10px;">&#9989;</span> <%= q.title %></span>
+                            
+                            <form action="/student/quiz/<%= q._id %>" method="GET" style="display:inline;">
+                                <button type="submit">Take Quiz</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                <% } else { %>
+                    <li class="no-content">No quizzes</li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

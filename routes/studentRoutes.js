@@ -213,16 +213,13 @@ router.post("/quiz/:quizId", isLoggedIn("Student"), async (req, res) => {
       const submitted = answers[qid];     // student selected text
       const correct = q.answer;           // stored text
 
-      console.log({ qid, submitted, correct });
+      // console.log({ qid, submitted, correct });
 
       if (submitted && submitted.trim() === correct.trim()) {
         score++;
       }
     });
 
-    // --------------------------------------
-    // 📌 WRITE SCORE TO A FILE
-    // --------------------------------------
     const sanitizedStudentName = student.name.replace(/\s+/g, "_");
     const sanitizedQuizTitle = quiz.title.replace(/\s+/g, "_");
     const dirPath = path.join(__dirname, "../quizScores");
@@ -239,9 +236,6 @@ Date: ${new Date().toLocaleString()}
 `
     );
 
-    // --------------------------------------
-    // 📌 ADD QUIZ TO STUDENT'S quizzes ARRAY
-    // --------------------------------------
     if (!student.quizzes.includes(quizId)) {
       student.quizzes.push(quizId);
       await student.save();
@@ -255,6 +249,70 @@ Date: ${new Date().toLocaleString()}
   }
 });
 
+// -------------------------------------------------------------- quizzes attempted count
+// -------------------------------------------------------------- quizzes attempted count
+
+router.get("/attempted-quizzes-count", isLoggedIn("Student") , async (req, res) => {
+  try {
+    const userId = req.user._id;
+    
+    const user = await User.findById(userId).select("quizzes");
+    
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+    
+    const count = user.quizzes.length;
+    
+    res.status(200).json({
+      attemptedQuizzes: count,
+    });
+    
+  } catch (err) {
+    console.error("Error fetching attempted quizzes:", err);
+    return res.status(500).send("Internal Server Error");
+  }
+});
+
+// -------------------------------------------------------------- enrolled courses count
+// -------------------------------------------------------------- enrolled courses count
+
+router.get("/enrolled-courses-count", isLoggedIn, async (req, res) => {
+  try {
+    const userId = req.user._id;
+    
+    const student = await User.findById(userId).select("courses");
+    
+    if (!student) {
+      return res.status(404).send("Student not found");
+    }
+    
+    res.status(200).json({
+      enrolledCoursesCount: student.courses.length,
+    });
+    
+  } catch (err) {
+    console.error("Error fetching enrolled course count:", err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// -------------------------------------------------------------- total available courses count
+// -------------------------------------------------------------- total available courses count
+
+router.get("/courses/count", isLoggedIn, async (req, res) => {
+  try {
+    const count = await Course.countDocuments();
+
+    res.status(200).json({
+      totalCoursesCount: count,
+    });
+
+  } catch (err) {
+    console.error("Error fetching courses count:", err);
+    res.status(500).send("Internal Server Error");
+  }
+});
 
 // --------------------------------------------------------------
 // ------------------------view todo endpoints----------------------

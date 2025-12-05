@@ -26,24 +26,39 @@ router.post("/signUp", signUpUser);
 //   res.render("studentDashboard", { user: req.user });
 // });
 
+// -------------------------------------------------------
+// ------------------------------------------------------- all working main fallback
+
 // router.get("/student-Dashboard", isLoggedIn("Student"), async (req, res) => {
 //   try {
 //     const user = req.user;
 
-//     // Fetch ALL available courses
+//     // Fetch all available courses
 //     const allCourses = await Course.find({}, "name");
 
 //     // Populate student's enrolled courses
 //     const studentData = await User.findById(user._id)
-//       .populate("courses", "name")  // populate only name
+//       .populate("courses", "name")
 //       .select("courses name email");
 
+//     // Fetch student's todos
+//     const todos = await Todo.find({ createdBy: user._id }).sort({ createdAt: -1 });
+
+//     // const totalAvailableCourses = allCourses.length;
+//     // const totalEnrolledCourses = studentData.courses.length;
+//     // const totalAttemptedQuizzes = studentData.quizzes.length;
+
 //     res.render("studentDashboard", {
-//       student: user,                        // name, email, etc.
-//       courses: allCourses,                  // all available courses
-//       enrolled: studentData.courses || [],  // the student’s enrolled courses
+//       student: user,
+//       courses: allCourses,
+//       enrolled: studentData.courses || [],
+//       todos,
 //       quizzes: [],
-//       announcements: []
+//       announcements: [],
+
+//       //  totalAvailableCourses : totalAvailableCourses || 22,
+//       // totalEnrolledCourses : totalEnrolledCourses || 5,
+//       // totalAttemptedQuizzes : totalAttemptedQuizzes || 6,
 //     });
 
 //   } catch (err) {
@@ -52,20 +67,31 @@ router.post("/signUp", signUpUser);
 //   }
 // });
 
+// --------------------------------------------------------
+
 router.get("/student-Dashboard", isLoggedIn("Student"), async (req, res) => {
   try {
     const user = req.user;
 
-    // Fetch all available courses
+    // 1) Fetch all available courses (only names)
     const allCourses = await Course.find({}, "name");
 
-    // Populate student's enrolled courses
+    // 2) Fetch student with enrolled courses
     const studentData = await User.findById(user._id)
       .populate("courses", "name")
-      .select("courses name email");
+      .select("courses quizzes name email");
 
-    // Fetch student's todos
+    // 3) Fetch todos
     const todos = await Todo.find({ createdBy: user._id }).sort({ createdAt: -1 });
+
+    // ---- COUNTS YOU WANT ----
+    const totalAvailableCourses = allCourses.length;
+    const totalEnrolledCourses = studentData.courses.length;
+    const totalAttemptedQuizzes = studentData.quizzes.length;
+
+    // console.log("Total Available Courses:", totalAvailableCourses);
+    // console.log("Total Enrolled Courses:", totalEnrolledCourses);
+    // console.log("Total Attempted Quizzes:", totalAttemptedQuizzes);
 
     res.render("studentDashboard", {
       student: user,
@@ -73,7 +99,15 @@ router.get("/student-Dashboard", isLoggedIn("Student"), async (req, res) => {
       enrolled: studentData.courses || [],
       todos,
       quizzes: [],
-      announcements: []
+      announcements: [],
+
+      // EXTRA COUNTS ⬇️
+      totalAvailableCourses : totalAvailableCourses || 22,
+      totalEnrolledCourses : totalEnrolledCourses || 5,
+      totalAttemptedQuizzes : totalAttemptedQuizzes || 6,
+
+      // ---- scoe testing
+       success: req.query.success || null,
     });
 
   } catch (err) {
@@ -81,8 +115,6 @@ router.get("/student-Dashboard", isLoggedIn("Student"), async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-
-
 
 
 //                       -------------------------------for teacher endpoints -------------------------------

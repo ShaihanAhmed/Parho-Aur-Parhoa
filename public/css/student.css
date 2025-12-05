@@ -1,118 +1,101 @@
-:root{
-  --accent1: #ff5f6d;
-  --accent2: #845ec2;
-  --bg: #f4f6fb;
-  --muted: #6b7280;
-  --glass: rgba(255,255,255,0.72);
-  --card-shadow: 0 18px 50px rgba(12, 20, 40, 0.08);
-  --soft-shadow: 0 8px 24px rgba(12,20,40,0.06);
-  --radius: 14px;
-  --maxw: 1300px;
+/* 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f5f7fb;
+    color: #333;
 }
 
-*{ box-sizing:border-box; }
-
-body{
-  margin:0;
-  font-family: "Poppins", Arial;
-  background: linear-gradient(180deg,#f6f7fb,#eef2ff);
-  padding:20px;
-  display:flex;
-  justify-content:center;
+h1 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    color: #222;
 }
 
-.page{
-  width:100%;
-  max-width:var(--maxw);
-  display:grid;
-  grid-template-columns:240px 1fr;
-  gap:24px;
+.section-title {
+    margin-top: 35px;
+    font-size: 22px;
+    color: #374151;
+    border-left: 5px solid #2563eb;
+    padding-left: 10px;
 }
 
-/* SIDEBAR */
-.sidebar{
-  background:linear-gradient(135deg,var(--accent1),var(--accent2));
-  padding:24px;
-  border-radius:var(--radius);
-  color:white;
-  height:calc(100vh - 40px);
-  position:sticky;
-  top:20px;
-  display:flex;
-  flex-direction:column;
-  gap:20px;
+.course-list,
+.enrolled-list,
+.todo-list {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
 }
 
-.sidebar .logo{
-  margin:0;
-  font-size:24px;
-  font-weight:800;
+.course-list li,
+.enrolled-list li,
+.todo-list li {
+    background: white;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.08);
 }
 
-.nav-links{ list-style:none; padding:0; }
-.nav-links li{ margin-bottom:10px; }
-
-.nav-links a{
-  display:block;
-  padding:10px 12px;
-  border-radius:10px;
-  font-weight:600;
-  color:white;
-  cursor:pointer;
-  transition:0.2s;
-}
-.nav-links a:hover,
-.nav-links a.active{
-  background:rgba(255,255,255,0.2);
+button {
+    padding: 8px 15px;
+    background: #2563eb;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
 }
 
-/* MAIN */
-.main{
-  background:white;
-  padding:20px;
-  border-radius:var(--radius);
-  box-shadow:var(--card-shadow);
+button:hover {
+    background: #1e4fc7;
 }
 
-.topbar{
-  margin-bottom:20px;
+button:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
 }
 
-.content-grid{
-  display:grid;
-  grid-template-columns:1fr 320px;
-  gap:22px;
+.todo-inputs {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
 }
 
-/* CARDS */
-.card, .panel{
-  background:white;
-  padding:18px;
-  border-radius:12px;
-  box-shadow:var(--soft-shadow);
-  margin-bottom:20px;
+.todo-inputs input {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 220px;
 }
 
-/* TODO */
-.todo-item{
-  display:flex;
-  align-items:center;
-  padding:6px 0;
-  border-bottom:1px solid #eee;
-  color:#444;
+.todo-inputs button {
+    padding: 10px 18px;
+    background: #10b981;
 }
 
-/* PROGRESS BAR */
-.progress-bar{
-  background:#f1f5f9;
-  height:10px;
-  border-radius:8px;
-  overflow:hidden;
-  margin:8px 0 14px 0;
+.todo-inputs button:hover {
+    background: #0e9f75;
 }
-.progress-bar-fill{
-  height:100%;
-  width:0%;
-  background:linear-gradient(90deg,var(--accent1),var(--accent2));
-  transition:width .4s ease;
+
+.todo-list a {
+    margin-left: 10px;
+    text-decoration: none;
+    font-weight: bold;
 }
+
+.todo-list a:nth-child(1) { color: #2563eb; } 
+.todo-list a:nth-child(2) { color: #dc2626; }
+
+.todo-list a:hover {
+    text-decoration: underline;
+} */
+
+/* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- */
+

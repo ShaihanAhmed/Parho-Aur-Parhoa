@@ -22,294 +22,561 @@
 <!-- ----------------------------------------------------------------------------- wacky -->
 
 <!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Student Dashboard — Premium</title>
-    <link href="/css/student.css" rel="stylesheet" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <link rel="stylesheet" href="style.css" />
-  </head>
-
-  <body>
-    <div class="page">
-      <aside class="sidebar">
-        <div>
-          <div class="brand">
-            <img src="/images/papLogo.jpeg" alt="Logo" />
-            <div>
-              <h1>Parho Aur Parhao</h1>
-              <div class="subtitle">Student Panel</div>
-            </div>
-          </div>
-
-          <nav class="side-nav">
-            <a class="nav-item active"
-              ><i class="ri-dashboard-3-line"></i> Dashboard</a
-            >
-            <a class="nav-item"><i class="ri-book-open-line"></i> My Courses</a>
-            <a class="nav-item"
-              ><i class="ri-questionnaire-line"></i> Quizzes</a
-            >
-            <a class="nav-item"><i class="ri-bar-chart-2-line"></i> Grades</a>
-          </nav>
-        </div>
-
-        <div class="sidebar-footer">
-          <div>v1.0</div>
-          <div style="margin-left: auto">Help</div>
-        </div>
-      </aside>
-
-      <main class="main">
-        <div class="topbar">
-          <div class="welcome">
-            <div>
-              <h2>Welcome back, John!</h2>
-              <small>Hope you have a productive day — keep learning 🎓</small>
-            </div>
-          </div>
-
-          <div class="profile-mini">
-            <img src="/images/papLogo.jpeg" alt="You" />
-            <div class="meta">
-              <b>John Doe</b>
-              <span style="color: var(--muted); font-size: 13px">Student</span>
-            </div>
-          </div>
-        </div>
-
-        <section class="stats">
-          <div class="stat">
-            <div class="icon"><i class="ri-book-line"></i></div>
-            <div>
-              <div class="stat-label">Enrolled Courses</div>
-              <div class="stat-num">4</div>
-            </div>
-          </div>
-
-          <div class="stat">
-            <div class="icon"><i class="ri-shield-check-line"></i></div>
-            <div>
-              <div class="stat-label">Quizzes Completed</div>
-              <div class="stat-num">9</div>
-            </div>
-          </div>
-
-          <div class="stat progress-circle">
-            <div class="circular">
-              <svg>
-                <circle cx="45" cy="45" r="40"></circle>
-                <circle cx="45" cy="45" r="40" class="bar"></circle>
-              </svg>
-              <div class="percent">66%</div>
-            </div>
-            <div>
-              <div class="stat-label">Progress Tracker</div>
-              <div class="stat-num">66% Completed</div>
-            </div>
-          </div>
-        </section>
-
-        <div class="content-grid">
-          <div>
-            <section class="card">
-              <h3>Your Courses</h3>
-
-              <div class="course-row">
-                <div class="course-info">
-                  <div class="course-thumb">CS</div>
-                  <div>
-                    <div class="course-title">Web Development Basics</div>
-                    <div class="course-sub">Instructor — Ali Rahman</div>
-                  </div>
-                </div>
-
-                <div class="course-meta">
-                  <div class="course-progress">78%</div>
-                  <div class="course-status">Active</div>
-                </div>
-              </div>
-
-              <div class="course-row">
-                <div class="course-info">
-                  <div class="course-thumb">ML</div>
-                  <div>
-                    <div class="course-title">
-                      Machine Learning Fundamentals
-                    </div>
-                    <div class="course-sub">Instructor — Dr. James Wilson</div>
-                  </div>
-                </div>
-
-                <div class="course-meta">
-                  <div class="course-progress">42%</div>
-                  <div class="course-status">Active</div>
-                </div>
-              </div>
-
-              <div class="course-row">
-                <div class="course-info">
-                  <div class="course-thumb">DB</div>
-                  <div>
-                    <div class="course-title">Database Management</div>
-                    <div class="course-sub">Instructor — Prof. Lisa Brown</div>
-                  </div>
-                </div>
-
-                <div class="course-meta">
-                  <div class="course-progress">61%</div>
-                  <div class="course-status">Active</div>
-                </div>
-              </div>
-
-              <div class="note">
-                Tip: Click a course to open details (future build).
-              </div>
-            </section>
-          </div>
-
-          <aside class="side-panel">
-            <div class="panel">
-              <h4>Quick Actions</h4>
-              <div class="quick-btns">
-                <button class="btn">
-                  <i class="ri-book-open-line"></i> View Courses
-                </button>
-              </div>
-              <div class="note">
-                Upload, submit or check deadlines from here.
-              </div>
-            </div>
-
-            <div class="panel">
-              <h4>To-Do List</h4>
-
-              <div class="todo-list">
-                <div class="todo-item">
-                  <div class="check-circle"></div>
-                  <span>Complete ML Assignment</span>
-                </div>
-                <div class="todo-item">
-                  <div class="check-circle"></div>
-                  <span>Prepare for Quiz</span>
-                </div>
-                <div class="todo-item">
-                  <div class="check-circle"></div>
-                  <span>Watch Lecture 05</span>
-                </div>
-                <div class="todo-item">
-                  <div class="check-circle"></div>
-                  <span>Update Course Notes</span>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </main>
-    </div>
-
-    <script>
-      document.querySelectorAll(".todo-item").forEach((item) => {
-        item.addEventListener("click", () => {
-          const circle = item.querySelector(".check-circle");
-          circle.classList.toggle("checked");
-        });
-      });
-    </script>
-  </body>
-</html> -->
-
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
-<!-- ---------------------------------------------------------------------- -->
-<!DOCTYPE html>
 <html>
 <head>
   <title>Student Dashboard</title>
+  <link rel="stylesheet" href="/css/student.css">
 </head>
 <body>
 
   <h1>Welcome, <%= student.name %> 👋</h1>
 
-  <h2>Your Available Courses</h2>
+  <h2 class="section-title">Your Available Courses</h2>
+  <ul class="course-list">
+    <% if (courses && courses.length > 0) { %>
+      <% courses.forEach(c => { %>
+        <li>
 
-<ul>
-  <% if (courses && courses.length > 0) { %>
-    <% courses.forEach(c => { %>
-      <li>
-        <%= c.name %>
+          <span><%= c.name %></span>
 
-        <% 
-          const alreadyEnrolled = enrolled.some(ec => ec._id.toString() === c._id.toString());
-        %>
+          <% 
+            const alreadyEnrolled = enrolled.some(ec => ec._id.toString() === c._id.toString());
+          %>
 
-        <% if (alreadyEnrolled) { %>
-            <button disabled style="margin-left: 10px; opacity: 0.5;">Enrolled</button>
-        <% } else { %>
-            <form action="/student/enroll-course/<%= c._id %>" method="POST" style="display:inline;">
-              <button type="submit" style="margin-left: 10px;">Enroll</button>
-            </form>
-        <% } %>
+          <% if (alreadyEnrolled) { %>
+              <button disabled>Enrolled</button>
+          <% } else { %>
+              <form action="/student/enroll-course/<%= c._id %>" method="POST" style="display:inline;">
+                <button type="submit">Enroll</button>
+              </form>
+          <% } %>
 
-      </li>
-    <% }) %>
-  <% } else { %>
-    <li>No courses available</li>
-  <% } %>
-</ul>
+        </li>
+      <% }) %>
+    <% } else { %>
+      <li>No courses available</li>
+    <% } %>
+  </ul>
+
+  <h2 class="section-title">Your Enrolled Courses</h2>
+  <ul class="enrolled-list">
+    <% if (enrolled && enrolled.length > 0) { %>
+      <% enrolled.forEach(c => { %>
+        <li>
+          <span><%= c.name %></span>
+
+          <form action="/student/course/<%= c._id %>" method="GET" style="display:inline;">
+            <button type="submit">View</button>
+          </form>
+        </li>
+      <% }) %>
+    <% } else { %>
+      <li>No enrolled courses yet</li>
+    <% } %>
+  </ul>
+
+  <h2 class="section-title">Your Todos</h2>
+
+  <form action="/student/add-todo" method="POST" class="todo-inputs">
+    <input type="text" name="title" placeholder="Todo title" required>
+    <input type="text" name="desc" placeholder="Description (optional)">
+    <button type="submit">Add Todo</button>
+  </form>
+
+  <ul class="todo-list">
+    <% if (todos && todos.length > 0) { %>
+      <% todos.forEach(t => { %>
+        <li>
+          <span <% if (t.isCompleted) { %>style="text-decoration: line-through;"<% } %>>
+            <%= t.title %> - <%= t.desc %>
+          </span>
+
+          <span>
+            <a href="/student/toggle-todo/<%= t._id %>">
+              <%= t.isCompleted ? 'Undo' : 'Complete' %>
+            </a>
+
+            <a href="/student/delete-todo/<%= t._id %>">Delete</a>
+          </span>
+        </li>
+      <% }) %>
+    <% } else { %>
+      <li>No todos yet</li>
+    <% } %>
+  </ul>
+
+</body>
+</html>
+ -->
+
+<!-- ---------------------------------------------------------------------- dummy routes testing ejs -->
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <style>
+        /* --- Color Palette based on the Admin Dashboard Image --- */
+        :root {
+            --sidebar-gradient: linear-gradient(180deg, #954D9A 0%, #E96479 100%); /* Purple to Pink */
+            --background-light: #F8F8FC; /* Very light, slightly cool background */
+            --card-white: #FFFFFF; /* Card background */
+            --text-dark: #333333; /* Primary dark text */
+            --text-light: #666666; /* Secondary text/subheadings */
+            --accent-pink: #E96479; /* Primary accent color */
+            --accent-green: #5CB85C; /* Success/Enrolled Green */
+            --accent-blue: #55C4D7; /* Action/Enroll Button Cyan */
+            --button-danger: #F44336; /* Delete Button Red */
+            --link-action: #5C67E2; /* Toggle/Undo link blue */
+            --border-color: #EFEFEF; /* Very light border */
+            --accent1: #4f46e5; /* indigo */
+  --accent2: #6366f1; /* lighter indigo */
+        }
+
+        /* --- Global Styling --- */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* --- Sidebar Styling --- */
+        .sidebar {
+            width: 250px;
+            background: var(--sidebar-gradient);
+            color: var(--card-white);
+            padding: 20px 0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            padding: 0 25px 30px;
+        }
+
+        .logo-text {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* Navigation Links */
+        .nav-link {
+            display: block;
+            text-decoration: none;
+            color: var(--card-white);
+            padding: 12px 25px;
+            margin: 5px 0;
+            transition: background-color 0.3s;
+        }
+
+        .nav-link.active {
+            /* Highlight the current dashboard link */
+            background-color: rgba(255, 255, 255, 0.2);
+            border-left: 4px solid var(--card-white);
+            font-weight: bold;
+        }
+
+        .nav-link:hover:not(.active) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- Main Content Area --- */
+        .main-content {
+            flex-grow: 1;
+            padding: 30px 40px;
+        }
+
+        /* --- Header and Welcome Message --- */
+        h1 {
+            color: var(--text-dark);
+            font-size: 2.2em;
+            padding-bottom: 5px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        /* --- Section Titles --- */
+        .section-title {
+            color: var(--text-dark);
+            font-size: 1.6em;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            padding-left: 10px;
+            border-left: 4px solid var(--accent-pink); /* Accent stripe */
+        }
+
+        /* --- List Styles (Courses, Todos) --- */
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .course-list li, .enrolled-list li, .todo-list li {
+            background-color: var(--card-white);
+            padding: 18px 25px;
+            margin-bottom: 12px;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        .course-list li:hover, .enrolled-list li:hover, .todo-list li:hover {
+            transform: translateY(-2px);
+        }
+
+        /* --- Buttons --- */
+        button {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+            margin-left: 10px;
+        }
+
+        /* Enroll Button */
+        .course-list button[type="submit"] {
+            background-color: var(--accent-blue);
+            color: var(--card-white);
+        }
+
+        .course-list button[type="submit"]:hover {
+            background-color: #48B0C4;
+        }
+
+        /* Enrolled (Disabled) Button */
+        .course-list button:disabled {
+            background-color: var(--accent-green);
+            color: var(--card-white);
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* View Button */
+        .enrolled-list button[type="submit"] {
+            background-color: var(--accent-pink);
+            color: var(--card-white);
+        }
+
+        .enrolled-list button[type="submit"]:hover {
+            background-color: #D65A6E;
+        }
+
+        /* --- Todo Section Styling --- */
+
+        .todo-inputs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .todo-inputs input[type="text"] {
+            flex-grow: 1;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1em;
+        }
+
+        .todo-inputs button[type="submit"] {
+            background-color: var(--accent-pink);
+            color: var(--card-white);
+        }
+
+        .todo-inputs button[type="submit"]:hover {
+            background-color: #D65A6E;
+        }
+
+        .todo-list span:first-child {
+            flex-grow: 1;
+        }
+
+        .todo-list a {
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 15px;
+            transition: color 0.2s;
+        }
+
+        /* Complete/Undo Link */
+        .todo-list a:first-of-type {
+            color: var(--link-action);
+        }
+        
+        /* Delete Link */
+        .todo-list a:last-of-type {
+            color: var(--button-danger);
+        }
+
+        .todo-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Empty State Styling --- */
+        .course-list li:not(:has(span)), .enrolled-list li:not(:has(span)), .todo-list li:not(:has(span)) {
+             /* Target the single "No courses/todos" list item */
+            justify-content: start;
+            font-style: italic;
+            color: var(--text-light);
+            border-left: 4px solid var(--border-color);
+            box-shadow: none;
+            transform: none;
+            cursor: default;
+        }
+        
+        /* EJS conditional style preservation for line-through */
+        li span[style*="line-through"] {
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        /* ---------------------------------------- */
+
+        .summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.card.stat {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(250, 250, 255, 1));
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  box-shadow: 0 12px 28px rgba(18, 38, 63, 0.05);
+  border: 1px solid rgba(14, 21, 45, 0.02);
+  transform: scale(0.95);
+  
+}
+
+.stat-left .stat-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(235, 255, 245, 1), rgba(220, 255, 235, 1));
+  font-size: 26px;
+  box-shadow: inset 0 -6px 20px rgba(0, 0, 0, 0.02);
+}
+
+.stat-right {
+  flex: 1;
+}
+
+.stat-label {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  background: linear-gradient(135deg, var(--accent1), var(--accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-number {
+  font-size: 22px;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.stat-icon {
+  font-size: 30px;
+  line-height: 64px;
+}
+
+.popup {
+  position: fixed;
+  top: 20px;
+  right: 40%;
+  background: #16a34a; /* green */
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeInOut 4s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
 
 
-  <h2>Your Enrolled Courses</h2>
+    </style>
+</head>
+<body>
 
-<ul>
-  <% if (enrolled && enrolled.length > 0) { %>
-    <% enrolled.forEach(c => { %>
-      <li>
-        <%= c.name %>
-        <!-- View button -->
-        <form action="/student/course/<%= c._id %>" method="GET" style="display:inline;">
-          <button type="submit">View</button>
-        </form>
-      </li>
-    <% }) %>
-  <% } else { %>
-    <li>No enrolled courses yet</li>
-  <% } %>
-</ul>
+  <% if (success) { %>
+  <div class="popup" id="successPopup">
+    <%= success %>
+  </div>
+<% } %>
 
 
-<h2>Your Todos</h2>
-
-<form action="/student/add-todo" method="POST">
-  <input type="text" name="title" placeholder="Todo title" required>
-  <input type="text" name="desc" placeholder="Description (optional)">
-  <button type="submit">Add Todo</button>
+  <form action="/user/logout" method="get">
+  <button type="submit" style="padding: 6px 12px; border: none; background-color: crimson; color: white; border-radius: 8px; cursor: pointer; position: fixed; top: 55px; right: 45px;">
+    Logout
+  </button>
 </form>
+    
+    <div class="sidebar">
+        <div class="logo-section">
+            <span style="font-size: 2em;">&#127891;</span>
+            <div class="logo-text">PARHAO AUR PARHAO</div>
+        </div>
 
-<ul>
-  <% if (todos && todos.length > 0) { %>
-    <% todos.forEach(t => { %>
-      <li>
-        <span <% if (t.isCompleted) { %>style="text-decoration: line-through;"<% } %>>
-          <%= t.title %> - <%= t.desc %>
-        </span>
-
-        <!-- Toggle completion -->
-        <a href="/student/toggle-todo/<%= t._id %>">
-          [<%= t.isCompleted ? 'Undo' : 'Complete' %>]
+        <a href="/user/student-Dashboard" class="nav-link active">
+            &#127968; Dashboard
         </a>
 
-        <!-- Delete -->
-        <a href="/student/delete-todo/<%= t._id %>">[Delete]</a>
-      </li>
-    <% }) %>
-  <% } else { %>
-    <li>No todos yet</li>
-  <% } %>
-</ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Welcome, <%= student.name %> 👋</h1>
+
+        <!-- ------------------------------ -->
+         <section class="summary">
+  <div class="card stat">
+    <div class="stat-left">
+      <div class="stat-icon">📚</div>
+    </div>
+    <div class="stat-right">
+      <div class="stat-label">Available Courses</div>
+      <div class="stat-number"><%= totalAvailableCourses %></div>
+    </div>
+  </div>
+
+  <div class="card stat">
+    <div class="stat-left">
+      <div class="stat-icon">🎓</div>
+    </div>
+    <div class="stat-right">
+      <div class="stat-label">Current Courses Enrolled</div>
+      <div class="stat-number"><%= totalEnrolledCourses %></div>
+    </div>
+  </div>
+
+  <div class="card stat">
+    <div class="stat-left">
+      <div class="stat-icon">📝</div>
+    </div>
+    <div class="stat-right">
+      <div class="stat-label">Quizzes Attempted</div>
+      <div class="stat-number"><%= totalAttemptedQuizzes %></div>
+    </div>
+  </div>
+</section>
+
+        <!-- ------------------------------ -->
+
+        <h2 class="section-title">Your Available Courses</h2>
+        <ul class="course-list">
+            <% if (courses && courses.length > 0) { %>
+                <% courses.forEach(c => { %>
+                    <li>
+                        <span><span style="color: var(--accent-pink); margin-right: 5px;">&#10003;</span> <%= c.name %></span>
+
+                        <% 
+                            const alreadyEnrolled = enrolled.some(ec => ec._id.toString() === c._id.toString());
+                        %>
+
+                        <% if (alreadyEnrolled) { %>
+                              <button disabled>Enrolled</button>
+                        <% } else { %>
+                              <form action="/student/enroll-course/<%= c._id %>" method="POST" style="display:inline;">
+                                <button type="submit">Enroll</button>
+                              </form>
+                        <% } %>
+
+                    </li>
+                <% }) %>
+            <% } else { %>
+                <li>No courses available</li>
+            <% } %>
+        </ul>
+
+        <h2 class="section-title">Your Enrolled Courses</h2>
+        <ul class="enrolled-list">
+            <% if (enrolled && enrolled.length > 0) { %>
+                <% enrolled.forEach(c => { %>
+                    <li>
+                        <span><span style="color: var(--accent-green); margin-right: 5px;">&#9733;</span> <%= c.name %></span>
+
+                        <form action="/student/course/<%= c._id %>" method="GET" style="display:inline;">
+                            <button type="submit">View</button>
+                        </form>
+                    </li>
+                <% }) %>
+            <% } else { %>
+                <li>No enrolled courses yet</li>
+            <% } %>
+        </ul>
+
+        <h2 class="section-title">Your Todos</h2>
+
+        <form action="/student/add-todo" method="POST" class="todo-inputs">
+            <input type="text" name="title" placeholder="Todo title" required>
+            <input type="text" name="desc" placeholder="Description (optional)">
+            <button type="submit">Add Todo</button>
+        </form>
+
+        <ul class="todo-list">
+            <% if (todos && todos.length > 0) { %>
+                <% todos.forEach(t => { %>
+                    <li>
+                        <span <% if (t.isCompleted) { %>style="text-decoration: line-through;"<% } %>>
+                            <span style="color: var(--link-action); margin-right: 5px;">&#9203;</span>
+                            <%= t.title %> - <%= t.desc %>
+                        </span>
+
+                        <span>
+                            <a href="/student/toggle-todo/<%= t._id %>">
+                                <%= t.isCompleted ? 'Undo' : 'Complete' %>
+                            </a>
+
+                            <a href="/student/delete-todo/<%= t._id %>">Delete</a>
+                        </span>
+                    </li>
+                <% }) %>
+            <% } else { %>
+                <li>No todos yet</li>
+            <% } %>
+        </ul>
+    </div>
 
 </body>
 </html>

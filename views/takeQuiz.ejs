@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <title><%= quiz.title %></title>
@@ -27,5 +27,48 @@
       <% }) %>
       <button type="submit">Submit Quiz</button>
     </form>
+  </body>
+</html> -->
+
+<!-- ------------------------------------------------------- -->
+<!-- ------------------------------------------------------- -->
+<!-- ------------------------------------------------------- -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= quiz.title %></title>
+    <link rel="stylesheet" href="/css/quiz.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="quiz-body">
+    <div class="quiz-container">
+      <h1 class="quiz-title"><%= quiz.title %></h1>
+
+      <form action="/student/quiz/<%= quiz._id %>" method="POST" class="quiz-form">
+        <% quiz.questions.forEach(q => { %>
+        <div class="question-card">
+          <p class="question-text"><%= q.question %></p>
+
+          <div class="options-group">
+            <% q.options.forEach((opt) => { %>
+            <label class="option-label">
+              <input
+                type="radio"
+                name="<%= q._id %>"
+                value="<%= opt.trim() %>"
+                required
+                class="option-radio"
+              />
+              <%= opt %>
+            </label>
+            <br />
+            <% }) %>
+          </div>
+        </div>
+        <hr class="separator" />
+        <% }) %>
+        <button type="submit" class="submit-button">Submit Quiz</button>
+      </form>
+    </div>
   </body>
 </html>
