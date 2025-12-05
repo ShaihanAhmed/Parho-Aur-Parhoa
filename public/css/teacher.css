@@ -179,6 +179,25 @@ body {
   border-radius: 0 25px 25px 0;
 }
 
+  .logout-btn {
+  background: #e63946;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 10px;
+  transition: 0.2s ease-in-out;
+  position: fixed;
+  right: 10px;
+  top: 35px;
+}
+
+.logout-btn:hover {
+  background: #c81e2e;
+}
+
+
 .logo-area {
   text-align: center;
   margin-bottom: 40px;

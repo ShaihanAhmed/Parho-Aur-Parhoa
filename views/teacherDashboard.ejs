@@ -54,7 +54,7 @@
 </html> -->
 
 <!-- -------------------- final test ver ejs with everything announce -------------------------- -->
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <title>Teacher Dashboard</title>
@@ -244,8 +244,8 @@
             <ul>
               <% course.resources.forEach(r => { %>
                 <li>
-                  <a href="<%= r?.fileUrl || '#' %>" target="_blank">
-                    <%= r?.title || "Untitled file" %>
+                  <a href="<%= r?.fileUrl || '#' %>" target="_blank" download>
+                    Download<%= r?.title || "Untitled file" %>
                   </a>
                   (<%= r?.fileType || "Unknown" %>)
                 </li>
@@ -303,7 +303,7 @@
       <p class="no-course-msg">No courses created yet.</p>
     <% } %>
   </body>
-</html>
+</html> -->
 
 <!-- ------------------------------------------------------------------ -->
 <!-- ------------------------------------------------------------------ -->
@@ -311,3 +311,167 @@
 <!-- ------------------------------------------------------------------ -->
 <!-- ------------------------------------------------------------------ -->
 <!-- wassam givenn dash ----------------------------------------------- -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="/css/teacher.css" />
+  </head>
+
+  <body>
+    <!-- ================= SIDEBAR ================= -->
+    <div class="sidebar">
+      <div class="logo-area">
+        <img src="/images/papLogo.jpeg" class="logo" />
+        <h2>PARHO AUR PARHAO</h2>
+      </div>
+
+      <a href="#" class="active">Dashboard</a>
+      <a href="#">My Courses</a>
+      <a href="#">Add Course</a>
+
+      <div class="version">Teacher Panel v1.0</div>
+    </div>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <div class="main-container">
+      <!-- TOP HEADER -->
+      <div class="top-header">
+        <h1>Hello <%= user?.name || "Teacher" %> 👋</h1>
+        <a href="/user/logout" class="logout-btn">Logout</a>
+      </div>
+
+
+      <div class="content-box">
+        <!-- ============ CENTER PANEL (COURSES) ============ -->
+        <div class="courses-panel">
+          <h2>Your Courses</h2>
+
+          <% if (courses?.length > 0) { %>
+            <% courses.forEach(course => { %>
+              <div class="course-card">
+                <h3><%= course?.name || "Unnamed Course" %></h3>
+
+                <!-- ANNOUNCEMENTS -->
+                <div class="section-title">Announcements</div>
+                <% if (course?.announcements?.length > 0) { %>
+                  <% course.announcements.forEach(a => { %>
+                    <div class="announcement-box">
+                      <%= a?.message || "No text" %>
+                      <div class="small">
+                        <%= a?.createdAt ? a.createdAt.toDateString() : "No date" %>
+                      </div>
+                    </div>
+                  <% }) %>
+                <% } else { %>
+                  <p class="empty">No announcements.</p>
+                <% } %>
+
+                <!-- RESOURCES -->
+                <div class="section-title">Resources</div>
+                <% if (course?.resources?.length > 0) { %>
+                  <ul class="resource-list">
+                    <% course.resources.forEach(r => { %>
+                      <li>
+                        <a href="<%= r?.fileUrl || '#' %>" target="_blank">
+                          <%= r?.title || "Untitled file" %>
+                        </a>
+                        (<%= r?.fileType || "Unknown" %>)
+                      </li>
+                    <% }) %>
+                  </ul>
+                <% } else { %>
+                  <p class="empty">No resources uploaded.</p>
+                <% } %>
+
+                <!-- QUIZZES -->
+                <div class="section-title">Quizzes</div>
+                <% if (course?.quizzes?.length > 0) { %>
+                  <% course.quizzes.forEach(q => { %>
+                    <div class="quiz-box">
+                      <div class="quiz-head">
+                        <b><%= q?.title || "Untitled Quiz" %></b>
+                        <span>Topic: <%= q?.topic || "None" %></span>
+                      </div>
+
+                      <% if (q?.questions?.length > 0) { %>
+                        <ol>
+                          <% q.questions.forEach(ques => { %>
+                            <li>
+                              <b>Q:</b> <%= ques?.question || "No question" %>
+                              <ul>
+                                <% (ques?.options || []).forEach(opt => { %>
+                                  <li><%= opt %></li>
+                                <% }) %>
+                              </ul>
+                              <div class="answer">Answer: <%= ques?.answer || "Not provided" %></div>
+                            </li>
+                          <% }) %>
+                        </ol>
+                      <% } else { %>
+                        <p class="empty">No questions in this quiz.</p>
+                      <% } %>
+                    </div>
+                  <% }) %>
+                <% } else { %>
+                  <p class="empty">No quizzes available.</p>
+                <% } %>
+
+              </div>
+            <% }) %>
+          <% } else { %>
+            <p class="empty">No courses created yet.</p>
+          <% } %>
+        </div>
+
+        <!-- ============ RIGHT PANEL (CREATE COURSE) ============ -->
+        <div class="create-panel">
+          <h3>Add Course + Resources + Quiz</h3>
+
+          <% if (message) { %>
+            <p class="success"><%= message %></p>
+          <% } %>
+
+          <form
+            action="/teacher/course/create-with-resources"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <label>Course Name</label>
+            <input type="text" name="name" required placeholder="Enter course name" />
+
+            <label>Announcement</label>
+            <textarea name="announcementMessage" placeholder="Optional message"></textarea>
+
+            <label>Upload Files</label>
+            <input type="file" name="files" multiple />
+
+            <h4>Add Quiz (5 Questions)</h4>
+
+            <label>Quiz Title</label>
+            <input type="text" name="quizTitle" placeholder="Enter quiz title" />
+
+            <label>Quiz Topic</label>
+            <input type="text" name="quizTopic" placeholder="Enter optional topic" />
+
+            <% for (let i = 1; i <= 5; i++) { %>
+              <div class="question-box">
+                <div class="q-head">Question <%= i %></div>
+                <input type="text" name="q<%= i %>" placeholder="Enter question" />
+
+                <% for (let j = 1; j <= 4; j++) { %>
+                  <input type="text" name="q<%= i %>_options[]" placeholder="Option <%= j %>" />
+                <% } %>
+
+                <input type="text" name="q<%= i %>_answer" placeholder="Correct answer" />
+              </div>
+            <% } %>
+
+            <button type="submit" class="submit-btn">Create Course</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

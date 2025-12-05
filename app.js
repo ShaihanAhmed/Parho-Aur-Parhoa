@@ -10,6 +10,7 @@ const debug = require("debug")("development:server"); //setting namespace with e
 //routes conv
 const userRoutes = require("./routes/userRoutes.js");
 const teacherRoutes = require("./routes/teacherRoutes.js");
+const studentRoutes = require("./routes/studentRoutes.js");
 
 //db config
 const connDB = require("./config/mongooseConnection");
@@ -33,6 +34,7 @@ app.use(express.urlencoded({ extended: true }));
 //routes handling 1
 app.use("/user" , userRoutes);
 app.use("/teacher" , teacherRoutes);
+app.use("/student" , studentRoutes);
 
 app.get('/', (req, res) => {
   res.render("login" , {error : undefined});

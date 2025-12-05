@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= quiz.title %></title>
+  </head>
+  <body>
+    <h1><%= quiz.title %></h1>
+
+    <form action="/student/quiz/<%= quiz._id %>" method="POST">
+      <% quiz.questions.forEach(q => { %>
+      <div>
+        <p><%= q.question %></p>
+
+        <% q.options.forEach((opt) => { %>
+        <label>
+          <input
+            type="radio"
+            name="<%= q._id %>"
+            value="<%= opt.trim() %>"
+            required
+          />
+          <%= opt %> </label
+        ><br />
+        <% }) %>
+      </div>
+      <hr />
+      <% }) %>
+      <button type="submit">Submit Quiz</button>
+    </form>
+  </body>
+</html>
