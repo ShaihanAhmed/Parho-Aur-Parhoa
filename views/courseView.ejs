@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= course.name %> - Course</title>
+</head>
+<body>
+  <h1><%= course.name %></h1>
+  <a href="/user/student-Dashboard">← Back to Dashboard</a>
+
+  <h2>Announcements</h2>
+  <ul>
+    <% if (course.announcements.length > 0) { %>
+      <% course.announcements.forEach(a => { %>
+        <li><%= a.message %></li>
+      <% }) %>
+    <% } else { %>
+      <li>No announcements</li>
+    <% } %>
+  </ul>
+
+  <h2>Resources</h2>
+  <ul>
+    <% if (course.resources.length > 0) { %>
+      <% course.resources.forEach(r => { %>
+        <li>
+          <a href="<%= r.fileUrl %>" target="_blank"><%= r.title %></a>
+        </li>
+      <% }) %>
+    <% } else { %>
+      <li>No resources</li>
+    <% } %>
+  </ul>
+
+  <h2>Quizzes</h2>
+  <ul>
+    <% if (course.quizzes.length > 0) { %>
+      <% course.quizzes.forEach(q => { %>
+        <li>
+          <%= q.title %>
+          <form action="/student/quiz/<%= q._id %>" method="GET" style="display:inline;">
+            <button type="submit">Take Quiz</button>
+          </form>
+        </li>
+      <% }) %>
+    <% } else { %>
+      <li>No quizzes</li>
+    <% } %>
+  </ul>
+</body>
+</html>

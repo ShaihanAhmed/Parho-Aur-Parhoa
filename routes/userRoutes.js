@@ -10,6 +10,9 @@ const router = express.Router();
 
 const User = require("../models/user-model.js");
 const Course = require("../models/course-model.js");
+const Todo = require("../models/todo-model");
+
+const todoController = require("../controllers/todosController.js");
 
 const fs = require('fs');
 const path = require('path');
@@ -19,9 +22,68 @@ router.post("/login", loginUser); // /user/login
 
 router.post("/signUp", signUpUser);
 
-router.get("/student-Dashboard", isLoggedIn("Student"), (req, res) => {
-  res.render("studentDashboard", { user: req.user });
+// router.get("/student-Dashboard", isLoggedIn("Student"), (req, res) => {
+//   res.render("studentDashboard", { user: req.user });
+// });
+
+// router.get("/student-Dashboard", isLoggedIn("Student"), async (req, res) => {
+//   try {
+//     const user = req.user;
+
+//     // Fetch ALL available courses
+//     const allCourses = await Course.find({}, "name");
+
+//     // Populate student's enrolled courses
+//     const studentData = await User.findById(user._id)
+//       .populate("courses", "name")  // populate only name
+//       .select("courses name email");
+
+//     res.render("studentDashboard", {
+//       student: user,                        // name, email, etc.
+//       courses: allCourses,                  // all available courses
+//       enrolled: studentData.courses || [],  // the student’s enrolled courses
+//       quizzes: [],
+//       announcements: []
+//     });
+
+//   } catch (err) {
+//     console.error("Error loading student dashboard:", err);
+//     res.status(500).send("Internal Server Error");
+//   }
+// });
+
+router.get("/student-Dashboard", isLoggedIn("Student"), async (req, res) => {
+  try {
+    const user = req.user;
+
+    // Fetch all available courses
+    const allCourses = await Course.find({}, "name");
+
+    // Populate student's enrolled courses
+    const studentData = await User.findById(user._id)
+      .populate("courses", "name")
+      .select("courses name email");
+
+    // Fetch student's todos
+    const todos = await Todo.find({ createdBy: user._id }).sort({ createdAt: -1 });
+
+    res.render("studentDashboard", {
+      student: user,
+      courses: allCourses,
+      enrolled: studentData.courses || [],
+      todos,
+      quizzes: [],
+      announcements: []
+    });
+
+  } catch (err) {
+    console.error("Error loading student dashboard:", err);
+    res.status(500).send("Internal Server Error");
+  }
 });
+
+
+
 
 //                       -------------------------------for teacher endpoints -------------------------------
 

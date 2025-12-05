@@ -21,203 +21,295 @@
 <!-- ----------------------------------------------------------------------------- -->
 <!-- ----------------------------------------------------------------------------- wacky -->
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Student Dashboard — Premium</title>
-  <link href="/css/student.css" rel="stylesheet">
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <head>
+    <meta charset="utf-8" />
+    <title>Student Dashboard — Premium</title>
+    <link href="/css/student.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <!-- LINK TO EXTERNAL CSS -->
-  <link rel="stylesheet" href="style.css" />
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-  <div class="page">
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-      <div>
-        <div class="brand">
-          <img src="/images/papLogo.jpeg" alt="Logo" />
-          <div>
-            <h1>Parho Aur Parhao</h1>
-            <div class="subtitle">Student Panel</div>
-          </div>
-        </div>
-
-        <nav class="side-nav">
-          <a class="nav-item active"><i class="ri-dashboard-3-line"></i> Dashboard</a>
-          <a class="nav-item"><i class="ri-book-open-line"></i> My Courses</a>
-          <a class="nav-item"><i class="ri-questionnaire-line"></i> Quizzes</a>
-          <a class="nav-item"><i class="ri-bar-chart-2-line"></i> Grades</a>
-        </nav>
-      </div>
-
-      <div class="sidebar-footer">
-        <div>v1.0</div>
-        <div style="margin-left:auto">Help</div>
-      </div>
-    </aside>
-
-
-
-    <!-- MAIN -->
-    <main class="main">
-
-      <div class="topbar">
-        <div class="welcome">
-          <div>
-            <h2>Welcome back, John!</h2>
-            <small>Hope you have a productive day — keep learning 🎓</small>
-          </div>
-        </div>
-
-        <div class="profile-mini">
-          <img src="/images/papLogo.jpeg" alt="You" />
-          <div class="meta">
-            <b>John Doe</b>
-            <span style="color:var(--muted);font-size:13px">Student</span>
-          </div>
-        </div>
-      </div>
-
-
-
-      <!-- STATS -->
-      <section class="stats">
-
-        <div class="stat">
-          <div class="icon"><i class="ri-book-line"></i></div>
-          <div>
-            <div class="stat-label">Enrolled Courses</div>
-            <div class="stat-num">4</div>
-          </div>
-        </div>
-
-        <div class="stat">
-          <div class="icon"><i class="ri-shield-check-line"></i></div>
-          <div>
-            <div class="stat-label">Quizzes Completed</div>
-            <div class="stat-num">9</div>
-          </div>
-        </div>
-
-        <div class="stat progress-circle">
-          <div class="circular">
-            <svg>
-              <circle cx="45" cy="45" r="40"></circle>
-              <circle cx="45" cy="45" r="40" class="bar"></circle>
-            </svg>
-            <div class="percent">66%</div>
-          </div>
-          <div>
-            <div class="stat-label">Progress Tracker</div>
-            <div class="stat-num">66% Completed</div>
-          </div>
-        </div>
-
-      </section>
-
-
-
-      <!-- GRID -->
-      <div class="content-grid">
-
-        <!-- LEFT -->
+  <body>
+    <div class="page">
+      <aside class="sidebar">
         <div>
-          <section class="card">
-            <h3>Your Courses</h3>
-
-            <div class="course-row">
-              <div class="course-info">
-                <div class="course-thumb">CS</div>
-                <div>
-                  <div class="course-title">Web Development Basics</div>
-                  <div class="course-sub">Instructor — Ali Rahman</div>
-                </div>
-              </div>
-
-              <div class="course-meta">
-                <div class="course-progress">78%</div>
-                <div class="course-status">Active</div>
-              </div>
+          <div class="brand">
+            <img src="/images/papLogo.jpeg" alt="Logo" />
+            <div>
+              <h1>Parho Aur Parhao</h1>
+              <div class="subtitle">Student Panel</div>
             </div>
+          </div>
 
-            <div class="course-row">
-              <div class="course-info">
-                <div class="course-thumb">ML</div>
-                <div>
-                  <div class="course-title">Machine Learning Fundamentals</div>
-                  <div class="course-sub">Instructor — Dr. James Wilson</div>
-                </div>
-              </div>
-
-              <div class="course-meta">
-                <div class="course-progress">42%</div>
-                <div class="course-status">Active</div>
-              </div>
-            </div>
-
-            <div class="course-row">
-              <div class="course-info">
-                <div class="course-thumb">DB</div>
-                <div>
-                  <div class="course-title">Database Management</div>
-                  <div class="course-sub">Instructor — Prof. Lisa Brown</div>
-                </div>
-              </div>
-
-              <div class="course-meta">
-                <div class="course-progress">61%</div>
-                <div class="course-status">Active</div>
-              </div>
-            </div>
-
-            <div class="note">Tip: Click a course to open details (future build).</div>
-          </section>
+          <nav class="side-nav">
+            <a class="nav-item active"
+              ><i class="ri-dashboard-3-line"></i> Dashboard</a
+            >
+            <a class="nav-item"><i class="ri-book-open-line"></i> My Courses</a>
+            <a class="nav-item"
+              ><i class="ri-questionnaire-line"></i> Quizzes</a
+            >
+            <a class="nav-item"><i class="ri-bar-chart-2-line"></i> Grades</a>
+          </nav>
         </div>
 
+        <div class="sidebar-footer">
+          <div>v1.0</div>
+          <div style="margin-left: auto">Help</div>
+        </div>
+      </aside>
 
-
-        <!-- RIGHT SIDE PANEL -->
-        <aside class="side-panel">
-
-          <div class="panel">
-            <h4>Quick Actions</h4>
-            <div class="quick-btns">
-              <button class="btn"><i class="ri-book-open-line"></i> View Courses</button>
-            </div>
-            <div class="note">Upload, submit or check deadlines from here.</div>
-          </div>
-
-          <div class="panel">
-            <h4>To-Do List</h4>
-
-            <div class="todo-list">
-              <div class="todo-item"><div class="check-circle"></div><span>Complete ML Assignment</span></div>
-              <div class="todo-item"><div class="check-circle"></div><span>Prepare for Quiz</span></div>
-              <div class="todo-item"><div class="check-circle"></div><span>Watch Lecture 05</span></div>
-              <div class="todo-item"><div class="check-circle"></div><span>Update Course Notes</span></div>
+      <main class="main">
+        <div class="topbar">
+          <div class="welcome">
+            <div>
+              <h2>Welcome back, John!</h2>
+              <small>Hope you have a productive day — keep learning 🎓</small>
             </div>
           </div>
 
-        </aside>
+          <div class="profile-mini">
+            <img src="/images/papLogo.jpeg" alt="You" />
+            <div class="meta">
+              <b>John Doe</b>
+              <span style="color: var(--muted); font-size: 13px">Student</span>
+            </div>
+          </div>
+        </div>
 
-      </div>
-    </main>
+        <section class="stats">
+          <div class="stat">
+            <div class="icon"><i class="ri-book-line"></i></div>
+            <div>
+              <div class="stat-label">Enrolled Courses</div>
+              <div class="stat-num">4</div>
+            </div>
+          </div>
 
-  </div>
+          <div class="stat">
+            <div class="icon"><i class="ri-shield-check-line"></i></div>
+            <div>
+              <div class="stat-label">Quizzes Completed</div>
+              <div class="stat-num">9</div>
+            </div>
+          </div>
 
-  <script>
-    document.querySelectorAll(".todo-item").forEach(item => {
-      item.addEventListener("click", () => {
-        const circle = item.querySelector(".check-circle");
-        circle.classList.toggle("checked");
+          <div class="stat progress-circle">
+            <div class="circular">
+              <svg>
+                <circle cx="45" cy="45" r="40"></circle>
+                <circle cx="45" cy="45" r="40" class="bar"></circle>
+              </svg>
+              <div class="percent">66%</div>
+            </div>
+            <div>
+              <div class="stat-label">Progress Tracker</div>
+              <div class="stat-num">66% Completed</div>
+            </div>
+          </div>
+        </section>
+
+        <div class="content-grid">
+          <div>
+            <section class="card">
+              <h3>Your Courses</h3>
+
+              <div class="course-row">
+                <div class="course-info">
+                  <div class="course-thumb">CS</div>
+                  <div>
+                    <div class="course-title">Web Development Basics</div>
+                    <div class="course-sub">Instructor — Ali Rahman</div>
+                  </div>
+                </div>
+
+                <div class="course-meta">
+                  <div class="course-progress">78%</div>
+                  <div class="course-status">Active</div>
+                </div>
+              </div>
+
+              <div class="course-row">
+                <div class="course-info">
+                  <div class="course-thumb">ML</div>
+                  <div>
+                    <div class="course-title">
+                      Machine Learning Fundamentals
+                    </div>
+                    <div class="course-sub">Instructor — Dr. James Wilson</div>
+                  </div>
+                </div>
+
+                <div class="course-meta">
+                  <div class="course-progress">42%</div>
+                  <div class="course-status">Active</div>
+                </div>
+              </div>
+
+              <div class="course-row">
+                <div class="course-info">
+                  <div class="course-thumb">DB</div>
+                  <div>
+                    <div class="course-title">Database Management</div>
+                    <div class="course-sub">Instructor — Prof. Lisa Brown</div>
+                  </div>
+                </div>
+
+                <div class="course-meta">
+                  <div class="course-progress">61%</div>
+                  <div class="course-status">Active</div>
+                </div>
+              </div>
+
+              <div class="note">
+                Tip: Click a course to open details (future build).
+              </div>
+            </section>
+          </div>
+
+          <aside class="side-panel">
+            <div class="panel">
+              <h4>Quick Actions</h4>
+              <div class="quick-btns">
+                <button class="btn">
+                  <i class="ri-book-open-line"></i> View Courses
+                </button>
+              </div>
+              <div class="note">
+                Upload, submit or check deadlines from here.
+              </div>
+            </div>
+
+            <div class="panel">
+              <h4>To-Do List</h4>
+
+              <div class="todo-list">
+                <div class="todo-item">
+                  <div class="check-circle"></div>
+                  <span>Complete ML Assignment</span>
+                </div>
+                <div class="todo-item">
+                  <div class="check-circle"></div>
+                  <span>Prepare for Quiz</span>
+                </div>
+                <div class="todo-item">
+                  <div class="check-circle"></div>
+                  <span>Watch Lecture 05</span>
+                </div>
+                <div class="todo-item">
+                  <div class="check-circle"></div>
+                  <span>Update Course Notes</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      document.querySelectorAll(".todo-item").forEach((item) => {
+        item.addEventListener("click", () => {
+          const circle = item.querySelector(".check-circle");
+          circle.classList.toggle("checked");
+        });
       });
-    });
-  </script>
+    </script>
+  </body>
+</html> -->
+
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Dashboard</title>
+</head>
+<body>
+
+  <h1>Welcome, <%= student.name %> 👋</h1>
+
+  <h2>Your Available Courses</h2>
+
+<ul>
+  <% if (courses && courses.length > 0) { %>
+    <% courses.forEach(c => { %>
+      <li>
+        <%= c.name %>
+
+        <% 
+          const alreadyEnrolled = enrolled.some(ec => ec._id.toString() === c._id.toString());
+        %>
+
+        <% if (alreadyEnrolled) { %>
+            <button disabled style="margin-left: 10px; opacity: 0.5;">Enrolled</button>
+        <% } else { %>
+            <form action="/student/enroll-course/<%= c._id %>" method="POST" style="display:inline;">
+              <button type="submit" style="margin-left: 10px;">Enroll</button>
+            </form>
+        <% } %>
+
+      </li>
+    <% }) %>
+  <% } else { %>
+    <li>No courses available</li>
+  <% } %>
+</ul>
+
+
+  <h2>Your Enrolled Courses</h2>
+
+<ul>
+  <% if (enrolled && enrolled.length > 0) { %>
+    <% enrolled.forEach(c => { %>
+      <li>
+        <%= c.name %>
+        <!-- View button -->
+        <form action="/student/course/<%= c._id %>" method="GET" style="display:inline;">
+          <button type="submit">View</button>
+        </form>
+      </li>
+    <% }) %>
+  <% } else { %>
+    <li>No enrolled courses yet</li>
+  <% } %>
+</ul>
+
+
+<h2>Your Todos</h2>
+
+<form action="/student/add-todo" method="POST">
+  <input type="text" name="title" placeholder="Todo title" required>
+  <input type="text" name="desc" placeholder="Description (optional)">
+  <button type="submit">Add Todo</button>
+</form>
+
+<ul>
+  <% if (todos && todos.length > 0) { %>
+    <% todos.forEach(t => { %>
+      <li>
+        <span <% if (t.isCompleted) { %>style="text-decoration: line-through;"<% } %>>
+          <%= t.title %> - <%= t.desc %>
+        </span>
+
+        <!-- Toggle completion -->
+        <a href="/student/toggle-todo/<%= t._id %>">
+          [<%= t.isCompleted ? 'Undo' : 'Complete' %>]
+        </a>
+
+        <!-- Delete -->
+        <a href="/student/delete-todo/<%= t._id %>">[Delete]</a>
+      </li>
+    <% }) %>
+  <% } else { %>
+    <li>No todos yet</li>
+  <% } %>
+</ul>
 
 </body>
 </html>

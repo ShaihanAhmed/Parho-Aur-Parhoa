@@ -256,6 +256,7 @@ exports.createCourseWithResources = async (req, res) => {
         const resource = await Resource.create({
           title: file.originalname,
           fileUrl: file.path,
+          // fileUrl: file.secure_url, //for downloading
           fileType: file.mimetype,
           uploadedBy: teacherId,
         });
